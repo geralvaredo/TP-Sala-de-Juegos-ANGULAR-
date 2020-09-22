@@ -1,3 +1,5 @@
+
+/*
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -7,7 +9,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -18,44 +20,43 @@ button {
     width: 100%;
 }
 
-/* Extra styles for the cancel button */
+
 .cancelbtn {
     padding: 14px 20px;
     background-color: #f44336;
 }
 
-/* Float cancel and signup buttons and add an equal width */
+
 .cancelbtn,.signupbtn {float:left;width:50%}
 
-/* Add padding to container elements */
+
 .container {
     padding: 16px;
 }
 
-/* The Modal (background) */
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
     padding-top: 60px;
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    margin: 5% auto 15% auto;
     border: 1px solid #888;
-    width: 98%; /* Could be more or less, depending on screen size */
+    width: 98%;
 }
 
-/* The Close Button (x) */
+
 .close {
     position: absolute;
     right: 35px;
@@ -71,16 +72,380 @@ button {
     cursor: pointer;
 }
 
-/* Clear floats */
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
+
 @media screen and (max-width: 300px) {
     .cancelbtn, .signupbtn {
        width: 100%;
     }
+}*/
+
+
+/* CSS NUEVO*/
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0px;padding:0px;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/****-----start-body----****/
+body{
+  text-align: center;
+  background: url("../../../assets/imagenes/1.jpg") 0px 0px no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
 }
+
+@font-face{
+  font-family: "Audiowide-Regular";
+  src:url(../../componentes/login/fonts/Audiowide-Regular.ttf);
+}
+@font-face{
+  font-family: "Asap-Regular";
+  src:url(../../componentes/login/fonts/Asap-Regular.ttf);
+}
+.padding-all{
+  padding:100px;
+}
+
+.header {
+  text-align: center;
+  padding-bottom:75px;
+}
+.header h1 img{
+  width:7%;
+}
+
+p ,a{
+  font-family: "Asap-Regular";
+}
+.header h1 , h2 {
+  font-size:50px;
+  color: #fff;
+  font-family: "Audiowide-Regular";
+  letter-spacing:3px;
+  margin:0 auto;
+}
+
+.terminos{
+  margin-bottom: 50px;
+  margin-top: -60px;
+}
+
+.terminos p{
+  color: white;
+}
+
+.header h2{
+  margin-top: 80px;
+}
+
+
+
+
+.design-w3l{
+  width:38%;
+  margin:0 auto;
+}
+
+
+
+.navbar h2 {
+  text-align: center;
+}
+
+
+.mail-form-agile {
+  padding: 50px 40px;
+  text-align: center;
+  margin:0px;
+  background: rgba(23, 218, 218, 0.18);
+  color: #000;
+  margin:0 auto;
+}
+
+.padding {
+  margin: 20px 0 0px;
+}
+
+.botones{
+  margin-top: 5px;
+  padding-left: 25px;
+  border-radius: 12px;
+  font-family: sans-serif;
+  border-width: 2px;
+
+}
+
+.mail-form-agile input[type='checkbox']{
+  margin-top: 30px;
+}
+
+.mail-form-agile label{
+  margin-top: 27px;
+}
+
+
+
+.mail-form-agile input[type="text"], .mail-form-agile input[type="password"] {
+  padding: 14px 11px;
+  width: 92.5%;
+  font-size: 16px;
+  outline: none;
+  background:transparent;
+  border:0px;
+  border-bottom: 1px solid #fff;
+  border-radius: 0px;
+  font-family: "Asap-Regular";
+  letter-spacing:1.6px;
+  color:#fff;
+}
+
+
+.mail-form-agile button{
+  padding: 10px 10px ;
+}
+
+
+
+
+::-webkit-input-placeholder{
+  color:#b4b0b0 !important;
+  font-weight:400;
+}
+.mail-form-agile button {
+  font-size: 18px;
+  padding: 10px 20px;
+  letter-spacing:1.2px;
+  border: none;
+  text-transform: capitalize;
+  outline: none;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background: #D65B88;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 auto;
+  font-family: "Asap-Regular";
+  -webkit-transition-duration: 0.9s;
+  transition-duration: 0.9s;
+}
+.mail-form-agile input[type="submit"]:hover {
+  -webkit-transition-duration: 0.9s;
+  transition-duration: 0.9s;
+  background:rgba(91, 157, 214, 0.76);
+}
+
+
+.footer{
+  text-align: center;
+  padding-top:75px;
+  letter-spacing:1.6px;
+  line-height:22px;
+}
+.footer p {
+  font-size: 16px;
+  color: #fff;
+  margin: 0px;
+  letter-spacing:1.4px;
+}
+.footer p a {
+  color:#D65B88;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+.footer p a:hover {
+  color: #51cbe1;
+  -webkit-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+
+
+/*-- responsive media queries --*/
+
+
+@media screen and (max-width:1440px){
+  .design-w3l {
+    width: 40%;
+  }
+  .header h1 img{
+    width:8.5%;
+  }
+
+}
+
+@media screen and (max-width:1366px){
+
+
+}
+
+@media screen and (max-width:1280px){
+  .design-w3l {
+    width: 46%;
+  }
+  .mail-form-agile {
+    padding: 40px;
+  }
+}
+
+
+@media screen and (max-width:1080px){
+  .padding-all{
+    padding:80px 50px;
+  }
+  .header h1 img{
+    width:8%;
+  }
+  .header h1 {
+    font-size: 44px;
+  }
+}
+
+
+@media screen and (max-width:991px){
+  .design-w3l {
+    width: 54%;
+  }
+
+
+}
+
+
+@media screen and (max-width:800px){
+  .padding-all{
+    padding:75px 30px;
+  }
+  .design-w3l {
+    width: 60%;
+  }
+  .header h1 {
+    font-size: 40px;
+  }
+  .header {
+    padding-bottom: 50px;
+  }
+  .footer {
+    padding-top: 50px;
+  }
+
+
+
+}
+
+
+@media screen and (max-width:667px){
+  .design-w3l {
+    width: 75%;
+  }
+
+}
+
+@media screen and (max-width:640px){
+  .header h1 img {
+    width: 10%;
+  }
+  .header h1 {
+    font-size: 36px;
+  }
+  .mail-form-agile {
+    padding: 35px 30px;
+  }
+  .mail-form-agile input[type="text"], .mail-form-agile input[type="password"] {
+    font-size: 14px;
+  }
+  .mail-form-agile input[type="submit"] {
+    font-size: 16px;
+  }
+  .footer p {
+    font-size: 14px;
+  }
+
+}
+
+
+@media screen and (max-width:568px){
+  .padding-all {
+    padding: 60px 20px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+}
+
+@media screen and (max-width:480px){
+  .header h1 {
+    font-size: 28px;
+  }
+  .design-w3l {
+    width: 92%;
+  }
+  .mail-form-agile input[type="submit"] {
+    font-size: 14px;
+  }
+  .footer p {
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width:414px){
+  .padding-all {
+    padding:50px 10px;
+  }
+  .header h1 {
+    font-size: 24px;
+  }
+
+
+
+}
+
+@media screen and (max-width:384px){
+  .header {
+    padding-bottom: 30px;
+  }
+  .header h1 {
+    font-size: 22px;
+  }
+  .design-w3l {
+    width: 100%;
+  }
+
+
+
+}
+
+@media screen and (max-width:320px){
+  .header h1 {
+    font-size: 18px;
+  }
+
+
+}
+
