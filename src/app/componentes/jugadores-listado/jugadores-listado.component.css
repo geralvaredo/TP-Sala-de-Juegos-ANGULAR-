@@ -1,0 +1,38 @@
+.imagenFondo{
+  width: 1421px;
+  height: 800px;
+  background-repeat: no-repeat;
+  background-color: #1993CC;
+  border-bottom: 2px solid #b01ba5;
+  background-image: url("/../../../assets/imagenes/jugadores2.jpg");
+
+}
+
+.opacity{
+  opacity: 0.5;
+}
+
+table{
+  border: solid 4px white;
+  width: 70%;
+  height: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+tr{
+  color: #007bff;
+  text-align: center;
+  background-color: rgba(8, 22, 36, 0.5);
+}
+
+tr:hover{
+  background-color: #64228A;
+}
+
+td {
+  text-align: center;
+  width: 5px;
+
+}
