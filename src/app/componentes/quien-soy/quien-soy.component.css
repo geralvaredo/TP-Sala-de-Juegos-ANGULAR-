@@ -1,7 +1,7 @@
 .imagenDeQuienSoy{
     width: 100%;
-   
     }
+
 body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
@@ -9,20 +9,20 @@ body {
 }
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
-.bg-1 { 
-    background-color: #1abc9c; /* Green */
+.bg-1 {
+    background-color: #6B0968; /* Dark violet */
     color: #ffffff;
 }
-.bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
+.bg-2 {
+    background-color: #0c062e; /* Dark Blue */
     color: #ffffff;
 }
-.bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+.bg-3 {
+    background-color: #6B0968; /* White */
+    color: #ffffff;
 }
-.bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
+.bg-4 {
+    background-color: #0c062e; /* Black Gray */
     color: #fff;
 }
 .container-fluid {
@@ -37,7 +37,24 @@ p {font-size: 16px;}
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+  background-color:  #0c062e;
+
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
+
+img {
+  max-width: 100%;
+}
+
+.color-gaming{
+  color: #F003E9;
+}
+
+
+
+
+
+
+
