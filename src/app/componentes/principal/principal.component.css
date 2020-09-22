@@ -1,6 +1,6 @@
 .imagenDeMenu{
-width: 80px;
-height: 70px;
+width: 150px;
+height: 150px;
 }
 
 .hero-text {
@@ -10,4 +10,49 @@ height: 70px;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #100000;
-    }
+}
+
+.hero-text h4{
+   color : white;
+}
+
+.margin{
+  margin-top: 10px;
+}
+
+.menu{
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.opacity{
+  opacity: 0.5;
+}
+
+.transparencia{
+  background-color: rgba(8, 22, 36, 0.5);
+}
+
+
+
+.item-background-color{
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.hero-item{
+  height: 921px;
+  padding-top: 125px;
+  border-bottom: 2px solid #b01ba5;
+  background-image: url("/../../../assets/imagenes/imagenFondo.jpg");
+
+}
+img{
+  margin-right: 20px;
+
+}
+
+
+
+
