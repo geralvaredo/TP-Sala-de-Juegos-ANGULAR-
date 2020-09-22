@@ -3,9 +3,9 @@
     <button (click)="Juego('Adivina')">Adivina</button>
     <button (click)="Juego('Agilidad')">Agilidad</button>
     <button (click)="Juego('AdivinaMasListado')">Adivina+listado</button>
-    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>  
+    <button (click)="Juego('AgilidadaMasListado')">Agilidad+listado</button>
     <button routerLink="/error">Error</button>
-  
+
 </div-->
 
 <!--nav class="navbar navbar-inverse">
@@ -26,29 +26,32 @@
         </ul>
     </div>
   </nav-->
+
+<div class="image">
   <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-                                  
-          </button>
-          <a class="navbar-brand" routerLink="/Principal">Inicio</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav">
-                <li class="active"><a routerLink="/Juegos">Menú de Juegos</a></li>
-                <li><a data-toggle="tooltip" title="Hooray!" (click)="Juego('Adivina')">Adivina</a></li>
-                <li><a  (click)="Juego('Agilidad')">Agilidad</a></li>
-                <li><a  (click)="Juego('AdivinaMasListado')">Adivina+listado</a></li>
-                <li><a  (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
-                  <li><a href="/Login"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
-                </ul>
-        </div>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <!--button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+        </button-->
+        <a class="navbar-brand" routerLink="/Principal">Inicio</a>
       </div>
-    </nav>
-      
-   
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a routerLink="/Juegos">Menú de Juegos</a></li>
+          <li><a data-toggle="tooltip" title="Hooray!" (click)="Juego('Adivina')">Adivina</a></li>
+          <li><a  (click)="Juego('Agilidad')">Agilidad</a></li>
+          <li><a  (click)="Juego('AdivinaMasListado')">Adivina+listado</a></li>
+          <li><a  (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
+          <li><a href="/Login"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+
