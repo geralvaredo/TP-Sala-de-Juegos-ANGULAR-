@@ -2,37 +2,49 @@
 <!--app-menu></app-menu-->
 <!-- index.html -->
 
+<div class="juego">
+  <div class="descripcion fondoVioleta">
+    <h2> Agilidad aritmética </h2>
+     <p> Resolvé las operaciones matemáticas antes de que se acabe el tiempo. Ganás si respondes bien al menos 3.</p>
+  </div>
+  <div  class="ronda">
+    <p [hidden]="btnArranque">  Ronda {{ nroRonda }} </p>
+    <h2 [hidden]="!btnArranque"> Operacion: ( {{ nuevoJuego.cuenta }} )</h2>
+  </div>
+  <div id="divMensaje" *ngIf="mostrarMensaje"  [ngStyle]="  {'background-color' : nuevoJuego.verificacionResultado()  ?  'green'  : 'red' , 'height' :  nuevoJuego.verificacionResultado() ? '60px' : '90px'  }">
+    <p>  {{ mensaje }} </p>
+    <p id="correcto">   {{ resultadoCorrecto }} </p>
+  </div>
+  <div class="arranque fondoAmarillo">
 
-<form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
+    <div class="alineacion">
+      <button id="arranque" [hidden] = "btnArranque" (click)="NuevoJuego()" class="btn btn-info btn-lg" > Arrancar Contador </button>
+    </div>
 
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
+    <h2 class="timer" [hidden]="ocultarVerificar"> Tiempo :{{ Tiempo }} </h2>
+    <div class="form-group row">
+      <label for="resultado" [hidden]="!btnArranque" >Respuesta: </label>
+      <input id="resultado" [hidden]="!btnArranque" [(ngModel)]="nuevoJuego.resultadoUsuario"   placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control col-md-2" style="width:50%"/>
+         </div>
+    <div class="boton">
+      <button [hidden]="ocultarVerificar" (click)="responder()" class="btn btn-success btn-lg"> Responder </button>
+    </div>
+  </div>
+  <input [hidden]="ocultarNumeros" [(ngModel)]="nuevoJuego.numeroUno" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  <input [hidden]="ocultarNumeros"   [(ngModel)]="nuevoJuego.numeroDos" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  <input [hidden]="ocultarNumeros" [(ngModel)]="nuevoJuego.operador" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
 
-</form>
+</div>
+
+
+
+
+
+    <!--h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2-->
+
+    <!--h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3-->
+    <!--h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3-->
+
+
+
+
