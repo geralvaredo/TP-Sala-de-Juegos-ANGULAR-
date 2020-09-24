@@ -1,0 +1,80 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+
+h1{
+  margin-top: 20px;
+  color: white;
+  margin: auto;
+  margin-top: 10px;
+
+}
+
+.jugar{
+  text-align: center;
+  width: 100%;
+}
+
+.jugar button{
+   border-top: 0px;
+   border-bottom: 0px;
+   border-left: 0px;
+  border-right: 0px;
+}
+
+.inicio{
+  text-align: center;
+}
+
+button{
+  border-radius: 5px;
+  border-color: white;
+  margin-top: 20px;
+  margin-left: 20px;
+  background-color: fuchsia;
+}
+
+img{
+   width: 220px;
+  height: 232px;
+  border: solid 1px #000;
+}
+
+
+
+.ppt{
+  height: 600px;
+  background-color: #0c062e;
+}
+
+#tuJugada{
+  margin-left: 330px;
+}
+
+#elRival{
+  margin-right: 290px;
+}
+
+
+.jugada{
+  margin-top: 30px;
+}
+
+.jugada img{
+  margin-left: 25px;
+  border-radius: 5px;
+  border-color: fuchsia;
+}
+
+p{
+  margin-top: 20px;
+  font-size: 40px;
+  color: white;
+}
+
+.jugada p{
+ text-align: center;
+}

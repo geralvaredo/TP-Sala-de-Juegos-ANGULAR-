@@ -1,4 +1,23 @@
 
+.transparencia{
+  background-color: rgba(8, 22, 36, 0.5);
+}
+
+.alineacion{
+  text-align:center;
+}
+
+h2{
+  color: #ffc107 ;
+}
+h2:hover{
+  color: white;
+}
+
+
 .image{
-  background-image: url("/../../../assets/imagenes/techo.jpg");
+  height: 321px;
+  width: 1272px;
+  border-bottom: 2px solid #b01ba5;
+  background-image: url("/../../../assets/imagenes/banner2.jpg");
 }

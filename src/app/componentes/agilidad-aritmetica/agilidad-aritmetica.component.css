@@ -1,0 +1,84 @@
+.arranque {
+  height: 200px;
+}
+
+label{
+  color: black;
+  margin-top: 10px;
+  padding-left: 400px;
+  margin-right: 10px;
+  font-size: 30px;
+
+}
+
+.arranque input[type='text']{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.boton{
+  text-align: center;
+}
+
+.arranque #arranque{
+  margin-top: 70px;
+  text-align: center;
+}
+
+
+.fondoVioleta{
+  background-color: #CE09C8;
+}
+
+.fondoAmarillo{
+  background-color: #ffc107 ;
+}
+
+.timer{
+    color: black;
+    padding-top: 15px;
+}
+
+h2{
+  text-align: center;
+  color: #F3E5C3;
+}
+
+.descripcion{
+  height: 70px;
+  text-align: center;
+  color: white;
+}
+
+
+.ronda{
+  width: 100%;
+  height: 70px;
+  background-color: #1282D0 ;
+}
+
+.ronda h2 {
+ padding-top: 10px;
+}
+
+.ronda p{
+  padding-top: 10px;
+  font-size: 30px;
+  color: #F3E5C3;
+  text-align: center;
+
+}
+
+.alineacion {
+  text-align: center;
+}
+
+#divMensaje p{
+  text-align: center;
+  color: black;
+  font-size: 30px;
+}
+
+#correcto{
+  margin-top: -20px;
+}
