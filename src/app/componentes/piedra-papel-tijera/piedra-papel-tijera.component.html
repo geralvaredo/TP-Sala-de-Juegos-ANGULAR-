@@ -1,3 +1,37 @@
-<p>
-  piedra-papel-tijera works!
-</p>
+
+<div class="ppt">
+  <div class="container">
+    <div *ngIf="!mostrar" class="jugar">
+      <button><img  id="rock" (click)="opcion($event)" [src]="imgRock" alt="piedra"></button>
+      <button ><img  id="paper" (click)="opcion($event)" [src]="imgPaper" alt="papel"></button>
+      <button ><img id="scissor" (click)="opcion($event)" [src]="imgScissor" alt="tijera"></button>
+      <p [hidden]="resultados"  > {{ mensaje }} </p>
+    </div>
+  </div>
+    <div class="inicio">
+      <button  *ngIf="mostrar"  class="btn btn-success btn-lg"   (click) = "jugar()"> Jugar </button>
+      <div class="row justify-content-center">
+        <h1 *ngIf="resultados" id="tuJugada"> Tu jugada </h1>
+        <h1 *ngIf="resultados" id="elRival" > La Maquina </h1>
+      </div>
+
+    </div>
+
+  <div *ngIf="resultados" id="eleccion" class="row jugada justify-content-center">
+    <img [src]="imagenEleccion" alt="eleccion">
+    <img [src]="imgVersus" alt="">
+    <img [src]="imagenRival"  alt="rival">
+  </div>
+  <div class="row justify-content-center">
+    <p [hidden]="!resultados" > {{ mensaje }} </p>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
