@@ -2,8 +2,11 @@ export abstract class Juego {
   public nombre = 'Sin Nombre';
   public jugador: string;
   public gano = false;
+  intentos : number;
 
-  constructor(nombre?: string, gano?: boolean,jugador?:string) {
+
+  constructor(nombre?: string, gano?: boolean,jugador?:string,
+              intentos?:any,resultado?:string) {
     if (nombre)
       this.nombre = nombre;
 
@@ -16,12 +19,12 @@ export abstract class Juego {
   }
 
 
-  
 
-  public abstract verificar():boolean; 
-  
+
+  public abstract verificacionResultado(): boolean;
+
   public retornarAyuda() {
-    
+
     return "NO hay Ayuda definida";
   }
 }
