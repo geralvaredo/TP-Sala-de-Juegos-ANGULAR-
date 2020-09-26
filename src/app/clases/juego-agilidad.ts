@@ -14,7 +14,7 @@ export class JuegoAgilidad extends Juego {
 
   constructor(nombre?: string, gano?: boolean, jugador?: string,
               intentos? :any, resultado?: string){
-         super(nombre,gano,jugador,intentos,resultado);
+         super("Juego Agilidad",gano,jugador,intentos,resultado);
   }
 
   operacionAleatoria() {
