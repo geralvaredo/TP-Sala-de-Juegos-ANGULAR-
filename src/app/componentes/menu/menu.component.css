@@ -7,9 +7,28 @@
   text-align:center;
 }
 
-h2{
-  color: #ffc107 ;
+
+.neon {
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #D8A80F;
+  font-family: Cursive;
+  font-size: 42px;
 }
+@keyframes neonAnim {
+  from {
+    text-shadow:
+      0 0 39px rgba(216, 168, 15, .7),
+      0 0 69px rgba(216, 168, 15, .7),
+      0 0 129px rgba(216, 168, 15, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(216, 168, 15, .7),
+      0 0 49px rgba(216, 168, 15, .7),
+      0 0 89px rgba(216, 168, 15, .7);
+  }
+}
+
 h2:hover{
   color: white;
 }
