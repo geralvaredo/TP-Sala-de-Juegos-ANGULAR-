@@ -1,12 +1,39 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tateti</title>
+</head>
+<body>
 
 <div class="tateti">
 
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
-  <button></button>
+  <h2 class="neon"> TA TE TI </h2>
 
+  <h2><button [hidden]="jugar" (click)="comienzo()" class="btn btn-success btn-lg jugar col-md-2">Jugar</button></h2>
+  <div id="snackbar">{{message}}</div>
+  <div [hidden]="tablero" class="arriba">
+    <button id="0" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo1 }} </button>
+    <button id="1" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo2 }} </button>
+    <button id="2" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo3 }} </button>
+  </div>
+  <div [hidden]="tablero" class="medio">
+    <button id="3" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo4 }}  </button>
+    <button id="4" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo5 }} </button>
+    <button id="5" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo6 }} </button>
+  </div>
+  <div [hidden]="tablero" class="abajo">
+    <button id="6" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo7 }} </button>
+    <button id="7" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo8 }} </button>
+    <button id="8" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo9 }} </button>
+  </div>
 </div>
+
+</body>
+</html>
+
+
+

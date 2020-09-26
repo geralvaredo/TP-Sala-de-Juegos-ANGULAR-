@@ -1,12 +1,66 @@
 
 .tateti{
-  height: 600px;
+  height: 1000px;
   background-color: #0c062e;
   text-align: center;
 }
 
-button{
+html{
+  background-color: #0c062e;
+
+}
+
+.botones {
   background-color: black;
+  width: 150px;
+  height: 150px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+ .jugar{
+   background-color: fuchsia;
+   color: white;
+   border: none;
+   width: 20%;
+}
+ .jugar:hover{
+   background-color:green;
+ }
+
+
+h2{
+  padding-top: 20px;
+}
+
+
+.arriba{
+  padding-top: 40px;
+  text-align: center;
+}
+
+.medio{
+  text-align: center;
+}
+
+.abajo{
+  text-align: center;
+}
+
+.neon {
+  color: #fff;
+
+  text-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
 }
 
 
@@ -32,12 +86,12 @@ button{
   }
 }
 .neon-azul {
-  animation: neonAnim 2s alternate-reverse infinite;
+  animation: neonAnimAzul 2s alternate-reverse infinite;
   color: #0068F1;
-  font-family: Cursive;
+  /*font-family: Cursive;*/
   font-size: 100px;
 }
-@keyframes neonAnim {
+@keyframes neonAnimAzul {
   from {
     text-shadow:
       0 0 39px rgba(0, 104, 241, .7),
@@ -51,3 +105,49 @@ button{
       0 0 89px rgba(0, 104, 241, .7);
   }
 }
+
+.neon-verde {
+  animation: neonAnimVerde 2s alternate-reverse infinite;
+  color: #088E1B;
+  font-family: Cursive;
+  font-size: 100px;
+}
+
+@keyframes neonAnimVerde {
+  from {
+    text-shadow:
+      0 0 39px rgba(8, 142, 27, .7),
+      0 0 69px rgba(8, 142, 27, .7),
+      0 0 129px rgba(8, 142, 27, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(8, 142, 27, .7),
+      0 0 49px rgba(8, 142, 27, .7),
+      0 0 89px rgba(8, 142, 27, .7);
+  }
+}
+
+
+.neon-amarillo {
+  animation: neonAnimAmarillo 2s alternate-reverse infinite;
+  color: #D8A80F;
+  font-family: Cursive;
+  font-size: 42px;
+}
+@keyframes neonAnimAmarillo {
+  from {
+    text-shadow:
+      0 0 39px rgba(216, 168, 15, .7),
+      0 0 69px rgba(216, 168, 15, .7),
+      0 0 129px rgba(216, 168, 15, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(216, 168, 15, .7),
+      0 0 49px rgba(216, 168, 15, .7),
+      0 0 89px rgba(216, 168, 15, .7);
+  }
+}
+
+
