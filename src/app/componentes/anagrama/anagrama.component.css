@@ -1,0 +1,128 @@
+
+.anagrama{
+  height: 600px;
+ background-color: #0c062e;
+  text-align: center;
+
+}
+
+h4{
+  color: white;
+  padding-top: 20px;
+}
+
+button {
+  background-color: fuchsia;
+  color: white;
+  padding: 10px 5px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+
+h2{
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+  margin: auto;
+}
+
+body {
+  background-color: #000000;
+  font-size: 50px;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+label{
+  color: white;
+    margin-right: 10px;
+  font-family: Cursive;
+  font-size: 30px;
+}
+
+.neon {
+  color: #fff;
+
+  text-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
+}
+
+.neon-verde {
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #088E1B;
+  font-family: Cursive;
+  font-size: 100px;
+}
+
+@keyframes neonAnim {
+  from {
+    text-shadow:
+      0 0 39px rgba(8, 142, 27, .7),
+      0 0 69px rgba(8, 142, 27, .7),
+      0 0 129px rgba(8, 142, 27, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(8, 142, 27, .7),
+      0 0 49px rgba(8, 142, 27, .7),
+      0 0 89px rgba(8, 142, 27, .7);
+  }
+}
+
+.neon-rojo{
+  animation: neonAnimRojo 2s alternate-reverse infinite;
+  color: #FB6262;
+  font-family: Cursive;
+  font-size: 100px;
+}
+
+@keyframes neonAnimRojo {
+  from {
+    text-shadow:
+      0 0 39px rgba(251, 98, 98, .7),
+      0 0 69px rgba(251, 98, 98, .7),
+      0 0 129px rgba(251, 98, 98, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(251, 98, 98, .7),
+      0 0 49px rgba(251, 98, 98, .7),
+      0 0 89px rgba(251, 98, 98, .7);
+  }
+}
+
+
+.alineacion{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+input[type='text']{
+  margin-top: 5px;
+}
+
+.palabra{
+  padding-top: 10px;
+}
+
+.Ganador {
+  background-color: #059F2F;
+}
+.Perdedor {
+  background-color: #FF0000;
+}
