@@ -82,3 +82,16 @@ h2{
 #correcto{
   margin-top: -20px;
 }
+
+.partidaGanada{
+  background-color : green;
+  height: 60px ;
+}
+
+.partidaPerdida{
+  background-color: red;
+  height:  90px;
+}
+
+
+

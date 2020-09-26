@@ -11,7 +11,7 @@
     <p [hidden]="btnArranque">  Ronda {{ nroRonda }} </p>
     <h2 [hidden]="!btnArranque"> Operacion: ( {{ nuevoJuego.cuenta }} )</h2>
   </div>
-  <div id="divMensaje" *ngIf="mostrarMensaje"  [ngStyle]="  {'background-color' : nuevoJuego.verificacionResultado()  ?  'green'  : 'red' , 'height' :  nuevoJuego.verificacionResultado() ? '60px' : '90px'  }">
+  <div id="divMensaje"  [hidden]="!mostrarMensaje">
     <p>  {{ mensaje }} </p>
     <p id="correcto">   {{ resultadoCorrecto }} </p>
   </div>

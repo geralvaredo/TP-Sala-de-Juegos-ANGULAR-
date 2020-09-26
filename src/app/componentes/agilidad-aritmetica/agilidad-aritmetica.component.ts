@@ -94,15 +94,25 @@ export class AgilidadAritmeticaComponent implements OnInit {
    }
 
    divVerde(){
-
-     //this.renderer.setStyle(this.divMensaje,"backgroundColor",'green');
+     this.verde();
      this.mensaje = "GANASTE!!" ;
    }
 
    divRojo(){
-     //this.renderer.setStyle(this.divMensaje,"backgroundColor",'red');
+     this.rojo();
      this.mensaje = "PERDISTE!!";
    }
+
+   rojo(){
+     let div = document.getElementById("divMensaje") as unknown as any;
+     div.className = 'partidaPerdida';
+   }
+
+   verde(){
+     let div = document.getElementById("divMensaje") as unknown as any;
+     div.className = 'partidaGanada';
+   }
+
 
   verificacionDeResultado(){
     if(this.nuevoJuego.verificacionResultado()){
@@ -116,12 +126,14 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
    respuestaAcertada(){
      this.nuevoJuego.obtenerPuntaje(true);
+     this.verde();
      this.mensaje = "Respuesta Correcta";
      this.resultadoCorrecto = "";
    }
 
    respuestaInvalida(){
      this.nuevoJuego.obtenerPuntaje(false);
+     this.rojo();
      this.mensaje = "Respuesta Incorrecta";
      this.resultadoCorrecto = this.resolucionMatematica();
    }
