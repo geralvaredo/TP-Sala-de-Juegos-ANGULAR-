@@ -14,29 +14,33 @@ export class AdivinaElNumeroComponent implements OnInit {
   Mensajes:string;
   contador:number;
   ocultarVerificar:boolean;
+  jugar : boolean;
 
   constructor() {
     this.nuevoJuego = new JuegoAdivina();
-    console.info("numero Secreto:",this.nuevoJuego.numeroSecreto);
-    this.ocultarVerificar=false;
+    this.ocultarVerificar=true;
+    this.jugar = false;
   }
   generarnumero() {
+    if(this.nuevoJuego.numeroIngresado !== undefined){
+      this.nuevoJuego.numeroIngresado = null ;
+    }
     this.nuevoJuego.generarnumero();
     this.contador=0;
+    this.jugar = true;
+    this.ocultarVerificar = false;
   }
-  verificar()
-  {
+  verificar()  {
+    this.jugar = false;
     this.contador++;
     this.ocultarVerificar=true;
     console.info("numero Secreto:",this.nuevoJuego.gano);
     if (this.nuevoJuego.verificacionResultado()){
-
       this.enviarJuego.emit(this.nuevoJuego);
       this.MostarMensaje("Sos un Genio!!!",true);
       this.nuevoJuego.numeroSecreto=0;
 
     }else{
-
       let mensaje:string;
       switch (this.contador) {
         case 1:
@@ -72,8 +76,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
     this.Mensajes=mensaje;
     var x = document.getElementById("snackbar");
-    if(ganador)
-      {
+    if(ganador){
         x.className = "show Ganador";
       }else{
         x.className = "show Perdedor";
@@ -81,7 +84,7 @@ export class AdivinaElNumeroComponent implements OnInit {
     var modelo=this;
     setTimeout(function(){
       x.className = x.className.replace("show", "");
-      modelo.ocultarVerificar=false;
+      //modelo.ocultarVerificar=false;
      }, 3000);
     console.info("objeto",x);
 
