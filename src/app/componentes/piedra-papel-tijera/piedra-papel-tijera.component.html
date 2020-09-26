@@ -1,6 +1,7 @@
 
 <div class="ppt">
-  <div class="container">
+  <div  class="container">
+
     <div *ngIf="!mostrar" class="jugar">
       <button><img  id="rock" (click)="opcion($event)" [src]="imgRock" alt="piedra"></button>
       <button ><img  id="paper" (click)="opcion($event)" [src]="imgPaper" alt="papel"></button>
@@ -9,8 +10,9 @@
     </div>
   </div>
     <div class="inicio">
+      <h1  class="neon" *ngIf="mostrar" id="principal">Piedra Papel o Tijera!</h1>
       <button  *ngIf="mostrar"  class="btn btn-success btn-lg"   (click) = "jugar()"> Jugar </button>
-      <div class="row justify-content-center">
+      <div class="row justify-content-center neon-violeta">
         <h1 *ngIf="resultados" id="tuJugada"> Tu jugada </h1>
         <h1 *ngIf="resultados" id="elRival" > La Maquina </h1>
       </div>
