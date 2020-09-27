@@ -1,0 +1,100 @@
+
+.memotest{
+  height: 1000px;
+  background-color: #0c062e;
+  text-align: center;
+}
+
+.neon {
+  color: #fff;
+
+  text-shadow:
+    0 0 5px rgba(0,178,255,1),
+    0 0 10px rgba(0,178,255,1),
+    0 0 20px rgba(0,178,255,1),
+    0 0 40px rgba(38,104,127,1),
+    0 0 80px rgba(38,104,127,1),
+    0 0 90px rgba(38,104,127,1),
+    0 0 100px rgba(38,104,127,1),
+    0 0 140px rgba(38,104,127,1),
+    0 0 180px rgba(38,104,127,1);
+}
+
+
+button {
+  background-color: fuchsia;
+  color: white;
+  padding: 10px 5px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+
+.comenzar button:hover{
+  background-color: green;
+}
+
+.comenzar{
+  margin-top: 30px;
+}
+
+h2 {
+   padding-top: 30px;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 2.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+
+.casilleros{
+   padding-top: 20px;
+}
+
+.c0, .c1, .c2, .c3, .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11 {
+  height: 200px;
+  width: 200px;
+  margin: 3px;
+  background-size: 100% 100%;
+  border: 0px;
+  background-color:transparent;
+}
+
+.c0, .c1, .c2 , .c3 , .c4, .c5 , .c6 , .c7 , .c8 , .c9 , .c10 , .c11  {
+  border-left: 3px solid fuchsia;
+  border-right: 3px solid fuchsia;
+  border-top: 3px solid fuchsia;
+  border-bottom: 3px solid fuchsia;
+}
+
+
+.mario {
+  background-image: url("../../../assets/imagenes/mario.png");
+  background-size: 100% 100%;
+}
+
+.luigi {
+  background-image: url("../../../assets/imagenes/luigi.png");
+  background-size: 100% 100%;
+}
+
+.toad {
+  background-image: url("../../../assets/imagenes/toad.png");
+  background-size: 100% 100%;
+}
+
+.bowser {
+  background-image: url("../../../assets/imagenes/bowser.png");
+  background-size: 100% 100%;
+}
+
+.yoshi {
+  background-image: url("../../../assets/imagenes/yoshi.jpeg");
+  background-size: 100% 100%;
+}
+
+.wario {
+  background-image: url("../../../assets/imagenes/wario.jpeg");
+  background-size: 100% 100%;
+}
+

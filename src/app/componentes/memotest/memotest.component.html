@@ -1,3 +1,26 @@
-<p>
-  memotest works!
-</p>
+<div class="memotest">
+  <h2 class="neon"> Memotest </h2>
+
+      <h2 *ngIf="mostrarMensaje">{{mensaje}}</h2>
+      <h2 *ngIf="comenzar && !mostrarMensaje">Intentos : {{intentos}} </h2>
+      <div *ngIf="comenzar && !mostrarMensaje" class="casilleros">
+       <button class="c0" [ngClass]="{mario: memotest.tablero[0] == '0' && mostrar[0], luigi: memotest.tablero[0] == '1' && mostrar[0], toad: memotest.tablero[0] == '2' && mostrar[0], bowser: memotest.tablero[0] == '3' && mostrar[0],yoshi: memotest.tablero[0] == '4' && mostrar[0], wario: memotest.tablero[0] == '5' && mostrar[0]}" (click)="jugar(0)"></button>
+        <button class="c1" [ngClass]="{mario: memotest.tablero[1] == '0' && mostrar[1], luigi: memotest.tablero[1] == '1' && mostrar[1], toad: memotest.tablero[1] == '2' && mostrar[1], bowser: memotest.tablero[1] == '3' && mostrar[1],yoshi: memotest.tablero[1] == '4' && mostrar[1], wario: memotest.tablero[1] == '5' && mostrar[1]}" (click)="jugar(1)"></button>
+        <button class="c2" [ngClass]="{mario: memotest.tablero[2] == '0' && mostrar[2], luigi: memotest.tablero[2] == '1' && mostrar[2], toad: memotest.tablero[2] == '2' && mostrar[2], bowser: memotest.tablero[2] == '3' && mostrar[2],yoshi: memotest.tablero[2] == '4' && mostrar[2], wario: memotest.tablero[2] == '5' && mostrar[2]}" (click)="jugar(2)"></button>
+        <button class="c3" [ngClass]="{mario: memotest.tablero[3] == '0' && mostrar[3], luigi: memotest.tablero[3] == '1' && mostrar[3], toad: memotest.tablero[3] == '2' && mostrar[3], bowser: memotest.tablero[3] == '3' && mostrar[3],yoshi: memotest.tablero[3] == '4' && mostrar[3], wario: memotest.tablero[3] == '5' && mostrar[3]}" (click)="jugar(3)"></button>
+        <button class="c4" [ngClass]="{mario: memotest.tablero[4] == '0' && mostrar[4], luigi: memotest.tablero[4] == '1' && mostrar[4], toad: memotest.tablero[4] == '2' && mostrar[4], bowser: memotest.tablero[4] == '3' && mostrar[4],yoshi: memotest.tablero[4] == '4' && mostrar[4], wario: memotest.tablero[4] == '5' && mostrar[4]}" (click)="jugar(4)"></button>
+        <button class="c5" [ngClass]="{mario: memotest.tablero[5] == '0' && mostrar[5], luigi: memotest.tablero[5] == '1' && mostrar[5], toad: memotest.tablero[5] == '2' && mostrar[5], bowser: memotest.tablero[5] == '3' && mostrar[5],yoshi: memotest.tablero[5] == '4' && mostrar[5], wario: memotest.tablero[5] == '5' && mostrar[5]}" (click)="jugar(5)"></button>
+        <button class="c6" [ngClass]="{mario: memotest.tablero[6] == '0' && mostrar[6], luigi: memotest.tablero[6] == '1' && mostrar[6], toad: memotest.tablero[6] == '2' && mostrar[6], bowser: memotest.tablero[6] == '3' && mostrar[6],yoshi: memotest.tablero[6] == '4' && mostrar[6], wario: memotest.tablero[6] == '5' && mostrar[6]}" (click)="jugar(6)"></button>
+        <button class="c7" [ngClass]="{mario: memotest.tablero[7] == '0' && mostrar[7], luigi: memotest.tablero[7] == '1' && mostrar[7], toad: memotest.tablero[7] == '2' && mostrar[7], bowser: memotest.tablero[7] == '3' && mostrar[7],yoshi: memotest.tablero[7] == '4' && mostrar[7], wario: memotest.tablero[7] == '5' && mostrar[7]}" (click)="jugar(7)"></button>
+        <button class="c8" [ngClass]="{mario: memotest.tablero[8] == '0' && mostrar[8], luigi: memotest.tablero[8] == '1' && mostrar[8], toad: memotest.tablero[8] == '2' && mostrar[8], bowser: memotest.tablero[8] == '3' && mostrar[8],yoshi: memotest.tablero[8] == '4' && mostrar[8], wario: memotest.tablero[8] == '5' && mostrar[8]}" (click)="jugar(8)"></button>
+        <button class="c9" [ngClass]="{mario: memotest.tablero[9] == '0' && mostrar[9], luigi: memotest.tablero[9] == '1' && mostrar[9], toad: memotest.tablero[9] == '2' && mostrar[9], bowser: memotest.tablero[9] == '3' && mostrar[9],yoshi: memotest.tablero[9] == '4' && mostrar[9], wario: memotest.tablero[9] == '5' && mostrar[9]}" (click)="jugar(9)"></button>
+        <button class="c10"[ngClass]="{mario: memotest.tablero[10] == '0' && mostrar[10], luigi: memotest.tablero[10] == '1' && mostrar[10], toad: memotest.tablero[10] == '2' && mostrar[10], bowser: memotest.tablero[10] == '3' && mostrar[10],yoshi: memotest.tablero[10] == '4' && mostrar[10], wario: memotest.tablero[10] == '5' && mostrar[10]}" (click)="jugar(10)"></button>
+        <button class="c11"[ngClass]="{mario: memotest.tablero[11] == '0' && mostrar[11], luigi: memotest.tablero[11] == '1' && mostrar[111], toad: memotest.tablero[11] == '2' && mostrar[11], bowser: memotest.tablero[11] == '3' && mostrar[11],yoshi: memotest.tablero[11] == '4' && mostrar[11], wario: memotest.tablero[11] == '5' && mostrar[11]}" (click)="jugar(11)"></button>
+      </div>
+      <button *ngIf="!comenzar" type="button" class="btn btn-success btn-lg comenzar" (click)="comenzarJuego()">Comenzar</button>
+      <h4 routerLink="/Juegos"><button class="btn btn-success btn-lg comenzar">Volver</button> </h4>
+</div>
+
+
+
+
