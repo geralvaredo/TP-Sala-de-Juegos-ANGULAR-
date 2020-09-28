@@ -157,6 +157,7 @@ export class PasapalabraComponent implements OnInit {
      for (let i = 0; i < this.pasapalabra.listaLetras.length; i++) {
        if (this.pasapalabra.listaLetras[i] == this.words[contador].letra){
          var item = document.getElementById(this.pasapalabra.listaLetras[i]);
+         item.className = item.className.replace("item item--warning", "item");
          item.className = item.className.replace("item", tipoClase);
        }
      }
