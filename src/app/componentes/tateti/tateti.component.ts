@@ -60,7 +60,6 @@ export class TatetiComponent implements OnInit {
   }
 
   finalizar(){
-    this.jugar =  false;
     this.cuentaMarcas = 9;
   }
 
@@ -74,9 +73,7 @@ export class TatetiComponent implements OnInit {
         default: break;
       }
 
-    setTimeout(function(){
-      x.className = x.className.replace("show", "");
-    }, 500);
+
 
   }
 
@@ -91,7 +88,7 @@ export class TatetiComponent implements OnInit {
   }
 
    chequearMensaje(){
-     if(this.cuentaMarcas < 9 && this.tateti.ganadorPartida !== "" || this.cuentaMarcas === 9 && this.tateti.ganadorPartida === ""){
+     if(this.cuentaMarcas < 9 && this.tateti.ganadorPartida !== "" || this.cuentaMarcas === 9 && this.tateti.ganadorPartida === "" || this.cuentaMarcas === 9 &&  this.tateti.ganadorPartida !== "" ){
        switch (this.tateti.ganadorPartida){
          case 'maquina': this.mostrarMensaje("PERDISTE!!",1); break;
          case 'jugador': this.mostrarMensaje("GANASTE!!",2); break;
@@ -99,7 +96,17 @@ export class TatetiComponent implements OnInit {
          default: break;
        }
      }
+     this.recargaPagina();
+
    }
+
+   recargaPagina(){
+     setTimeout(function(){
+       location.reload();
+     }, 4000);
+
+   }
+
 
   generarJugada(eleccion: number){
      let x = "X";
@@ -149,9 +156,6 @@ export class TatetiComponent implements OnInit {
     }
 
     }
-
-
-
   }
 
   dibujoTablero(eleccion: number, mensajito: string){
