@@ -1,3 +1,54 @@
-<p>
-  pasapalabra works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,400,600,900">
+  <title>Pasapalabra</title>
+</head>
+<body>
+<section (keydown.enter)="enter()" (keydown.space)="barraEspaciadora()"  class="game">
+  <div class="circle-container">
+    <div class="title-container">
+      <p class="neon">PASAPALABRA</p>
+    </div>
+    <ul class="circle">
+      <li *ngFor="let item of pasapalabra.listaLetras"  class="item" id="{{item}}" > {{item}} </li>
+    </ul>
+    <ul class="scoreboard">
+      <li id="js--timer" class="timer" href="">{{tiempo}}</li>
+      <li id="js--score" class="score" href="">{{puntaje}}</li>
+    </ul>
+  </div>
+  <div class="controls-container">
+    <i [hidden]="iconCerrar" (click)="cerrar()" class="icon-close"></i>
+    <div [hidden] = "descripcion"  id="descripcion" class="ng-controls">
+      <h4>Bienvenidos al juego de Pasapalabra</h4>
+      <p>Basado en el exitoso concurso de televisión Pasapalabra , las normas son muy sencillas:</p>
+      <p>Se mostraran unas definiciones por pantalla y el usuario deberá responder con la palabra a la que corresponden. El usuario tiene la opción de decir Pasapalabra y dejar esa definición para mas adelante.</p>
+      <p>El programa es sensible a las acentuación, asi que se debe introducir la palabra sin tilde.</p>
+      <p>Es posible utilizar la tecla ENTER para enviar la palabra y el SPACE para hacer pasapalabra.</p>
+      <a id="js--new-game" (click)="jugar()" class="btn"><i class="icon-play"></i>Jugar</a>
+    </div>
+    <div [hidden]="cuestionario" class="question-controls">
+      <p  class="hint"> {{condicion}} </p>
+      <p  class="definition"> {{definicion}} </p>
+
+      <input id="js--user-answer"   [(ngModel)]="pasapalabra.palabra"   type="text" placeholder="Introduce tu respuesta">
+
+      <a id="js--send" class="btn btn--green" (click)="enviar()" >Enviar</a>
+      <a id="js--pasapalabra" class="btn" (click)="pasarDePalabra()">Pasapalabra</a>
+    </div>
+    <div  [hidden]="finPartida" class="pa-controls">
+      <p id="js--end-title" class="title">{{tituloFinal}}</p>
+      <p id="js--end-subtitle" class="subtitle">{{subtituloFinal}}</p>
+      <a id="js--pa" class="btn" (click)="deNuevo()" ><i class="icon-loop"></i>Jugar de nuevo</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>Made with by <a href="https://twitter.com/germignacio">German Alvaredo</a></p>
+</footer>
+</body>
+</html>
