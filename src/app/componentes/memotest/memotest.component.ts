@@ -90,14 +90,20 @@ export class MemotestComponent implements OnInit {
 
   jugadorGano() {
     this.mostrarMensaje = true;
-    this.mensaje = "GANASTE!";
-    setTimeout(() => this.reiniciar(), 4000);
+    this.mensajeConColor("neon-verde",'GANASTE!!');
+    setTimeout(() => this.reiniciar(), 6000);
   }
 
   jugadorPerdio() {
     this.mostrarMensaje = true;
-    this.mensaje = "PERDISTE";
-    setTimeout(() => this.reiniciar(), 4000);
+    this.mensajeConColor("neon-rojo","PERDISTE!!");
+    setTimeout(() => this.reiniciar(), 6000);
+  }
+
+  mensajeConColor(color: string, frase: string){
+    this.mensaje = frase ;
+    var mensaje = document.getElementById("mensaje");
+    mensaje.className = color;
   }
 
   reiniciar() {

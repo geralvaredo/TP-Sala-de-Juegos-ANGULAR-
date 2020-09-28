@@ -6,6 +6,7 @@
 }
 
 .neon {
+  padding-top: 30px;
   color: #fff;
 
   text-shadow:
@@ -19,6 +20,50 @@
     0 0 140px rgba(38,104,127,1),
     0 0 180px rgba(38,104,127,1);
 }
+
+.neon-rojo {
+  padding-top: 30px;
+  animation: neonAnim 2s alternate-reverse infinite;
+  color: #FB6262;
+  font: 2.5em Georgia;
+}
+@keyframes neonAnim {
+  from {
+    text-shadow:
+      0 0 39px rgba(251, 98, 98, .7),
+      0 0 69px rgba(251, 98, 98, .7),
+      0 0 129px rgba(251, 98, 98, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(251, 98, 98, .7),
+      0 0 49px rgba(251, 98, 98, .7),
+      0 0 89px rgba(251, 98, 98, .7);
+  }
+}
+
+.neon-verde {
+  padding-top: 30px;
+  animation: neonAnimVerde 2s alternate-reverse infinite;
+  color: #088E1B;
+  font: 2.5em Georgia;
+}
+
+@keyframes neonAnimVerde {
+  from {
+    text-shadow:
+      0 0 39px rgba(8, 142, 27, .7),
+      0 0 69px rgba(8, 142, 27, .7),
+      0 0 129px rgba(8, 142, 27, .7);
+  }
+  to {
+    text-shadow:
+      0 0 34px rgba(8, 142, 27, .7),
+      0 0 49px rgba(8, 142, 27, .7),
+      0 0 89px rgba(8, 142, 27, .7);
+  }
+}
+
 
 
 button {
@@ -39,7 +84,7 @@ button {
   margin-top: 30px;
 }
 
-h2 {
+#intentos {
    padding-top: 30px;
   text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
   color: white;
