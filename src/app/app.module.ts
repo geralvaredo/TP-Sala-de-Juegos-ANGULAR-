@@ -7,15 +7,8 @@ import { ListadoDeResultadosComponent } from './componentes/listado-de-resultado
 import { LoginComponent } from './componentes/login/login.component';
 //  import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule } from '@angular/http';
-
-
-// import { AccordionModule } from 'ngx-bootstrap';
-// agrego las clases para utilizar ruteo
-import { RouterModule, Routes } from '@angular/router';
-
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service';
-
 import { JugadoresService } from './servicios/jugadores.service';
 import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service';
 import { ErrorComponent } from './componentes/error/error.component';
@@ -26,21 +19,7 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
-// declaro donde quiero que se dirija
-/*
-const MiRuteo = [{path: 'error' , component: ErrorComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Principal' , component: PrincipalComponent , pathMatch: 'full'},
-{path: 'Adivina' , component: AdivinaElNumeroComponent},
-{path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-{path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-{path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-{path: '' , component: LoginComponent , pathMatch: 'full'},
-
-{path: '**' , component: ErrorComponent} ];
-*/
 import { JugadoresListadoComponent } from './componentes/jugadores-listado/jugadores-listado.component';
-
 import { JuegoServiceService } from './servicios/juego-service.service';
 import { ListadosComponent } from './componentes/listados/listados.component';
 import { JuegosComponent } from './componentes/juegos/juegos.component';
@@ -58,6 +37,28 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { MemotestComponent } from './componentes/memotest/memotest.component';
 import { PasapalabraComponent } from './componentes/pasapalabra/pasapalabra.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+
+// import { AccordionModule } from 'ngx-bootstrap';
+// agrego las clases para utilizar ruteo
+import { RouterModule, Routes } from '@angular/router';
+import {AngularFireModule} from "@angular/fire";
+import {environment} from "../environments/environment.prod";
+
+/*
+const MiRuteo = [{path: 'error' , component: ErrorComponent},
+{path: 'Login' , component: LoginComponent},
+{path: '' , component: PrincipalComponent , pathMatch: 'full'},
+{path: 'Adivina' , component: AdivinaElNumeroComponent},
+{path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
+{path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
+{path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+/*{path: '' , component: LoginComponent , pathMatch: 'full'},
+{path: '**' , component: ErrorComponent} ];*/
+
+
 
 @NgModule({
   declarations: [
@@ -94,7 +95,10 @@ import { PasapalabraComponent } from './componentes/pasapalabra/pasapalabra.comp
     FormsModule,
     RuteandoModule,
     HttpModule,
-
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     })
