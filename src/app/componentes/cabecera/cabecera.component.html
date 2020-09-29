@@ -8,7 +8,9 @@
     <div class="header-bar-warp d-flex">
       <nav class="top-nav-area w-100">
         <div class="user-panel">
-          <a href="/Login">Ingresar</a> / <a href="/Registro">Registrarse</a>
+          <!--a  href="/Login">Ingresar</a> / <a *ngIf="!login" href="/Registro">Registrarse</a-->
+          <a href="#" (click)="onLogOut()" >Desloguearse </a>
+
         </div>
         <ul class="main-menu primary-menu">
           <li><a href="">Sala de Juegos</a></li>
