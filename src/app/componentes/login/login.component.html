@@ -63,7 +63,6 @@
 <html>
 
 <head>
-  <title>Gaming Login Form Responsive Widget Template</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="Gaming Login Form Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"/>
@@ -74,16 +73,15 @@
   <div class="header">
     <h1><img src="./assets/imagenes/5.png" alt=" "> Gaming Login Form</h1>
   </div>
-
   <div class="design-w3l">
     <div class="mail-form-agile">
       <form>
-        <input type="text" name="name" placeholder="User Name  or  email..." required=""/>
-        <input type="password"  name="password" class="padding" placeholder="Password" required=""/>
+        <input type="text" [(ngModel)]="usuario._email" name="name" placeholder="User Name  or  email..." required=""/>
+        <input type="password" [(ngModel)]="usuario._pass" name="password" class="padding" placeholder="Password" required=""/>
         <br>
         <div class="form-group">
           <div class="col-md-6">
-            <input type="checkbox" id="recordar" class="form-check-input" value="">
+            <input  type="checkbox" id="recordar" class="form-check-input" value="">
             <label for="recordar" style="color: white">Recordar mis datos</label>
           </div>
           <br>
@@ -91,16 +89,20 @@
       </form>
       <div class="container">
         <div class="row ">
-          <div class="col-md-4">
-            <button type="button">Loguearse</button>
+          <div class="col-md-3">
+            <button class="btn btn-success btn-lg"(click)="onLogin()" >Loguearse</button>
           </div>
-          <div class="col-md-4">
-            <button type="button">Cancelar</button>
+          <div class="col-md-3">
+            <button class="btn btn-success btn-lg" (click)="cancelar()" >Cancelar</button>
           </div>
-          <div class="col-md-4">
-            <button type="button" routerLink="/Registro">Registrarse</button>
+          <div class="col-md-3">
+            <button class="btn btn-success btn-lg" (click)="registro()">Registrarse</button>
+          </div>
+          <div class="col-md-3">
+            <button class="btn btn-success btn-lg" (click)="administrador()" >Administrador</button>
           </div>
         </div>
+
         <br>
         <span class="psw" style="color: white" >Te olvidaste la clave? Has click <a href="#">aqui</a></span>
       </div>
