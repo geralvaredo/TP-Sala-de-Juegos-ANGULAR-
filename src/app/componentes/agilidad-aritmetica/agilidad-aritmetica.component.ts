@@ -8,8 +8,7 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
-   @Output()
-  enviarJuego :EventEmitter<any>= new EventEmitter<any>();
+   @Output() enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   nuevoJuego : JuegoAgilidad;
   ocultarVerificar: boolean;
   ocultarNumeros: boolean;
@@ -25,6 +24,10 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
+   enviarJugada(juego: JuegoAgilidad){
+    this.enviarJuego.emit(juego);
+   }
+
    constructor() {
      this.ocultarVerificar=true;
      this.inicializaRonda();
@@ -36,7 +39,9 @@ export class AgilidadAritmeticaComponent implements OnInit {
      console.info("Inicio agilidad");
   }
 
-
+  inicializaRonda(){
+    this.nroRonda = 1;
+  }
 
   NuevoJuego() {
        if(this.nroRonda == 1){
@@ -49,6 +54,52 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.nuevoJuego.resultadoUsuario = null;
       this.limpiarRepetidor();
   }
+
+
+
+  responder(){
+   this.verificarValores();
+   clearInterval(this.repetidor);
+   this.Tiempo=15;
+   this.verificacionDeResultado();
+   if(this.nroRonda == 6){
+     this.nuevoJuego.obtenerPartida();
+     this.inicializaRonda();
+     this.condicion();
+     }
+   }
+
+   condicion(){
+      this.mensaje = "";
+    if (this.nuevoJuego.partida){
+      this.divVerde();
+    }else{
+      this.divRojo();
+    }
+      this.mostrarMensaje = true;
+   }
+
+   divVerde(){
+     this.verde();
+     this.nuevoJuego.gano = true;
+     this.mensaje = "GANASTE!!" ;
+   }
+
+   divRojo(){
+     this.rojo();
+     this.nuevoJuego.gano = false;
+     this.mensaje = "PERDISTE!!";
+   }
+
+   rojo(){
+     let div = document.getElementById("divMensaje") as unknown as any;
+     div.className = 'partidaPerdida';
+   }
+
+   verde(){
+     let div = document.getElementById("divMensaje") as unknown as any;
+     div.className = 'partidaGanada';
+   }
 
   limpiarRepetidor(){
     this.repetidor = setInterval(()=>{
@@ -69,50 +120,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.ocultarVerificar=true;
     this.btnArranque = false;
   }
-
-  responder(){
-   this.verificarValores();
-   clearInterval(this.repetidor);
-   this.Tiempo=15;
-   this.verificacionDeResultado();
-   if(this.nroRonda == 6){
-     this.nuevoJuego.obtenerPartida();
-     this.inicializaRonda();
-     this.condicion();
-     console.log(this.nuevoJuego.puntaje);
-     }
-   }
-
-   condicion(){
-      this.mensaje = "";
-    if (this.nuevoJuego.partida){
-      this.divVerde();
-    }else{
-      this.divRojo();
-    }
-      this.mostrarMensaje = true;
-   }
-
-   divVerde(){
-     this.verde();
-     this.mensaje = "GANASTE!!" ;
-   }
-
-   divRojo(){
-     this.rojo();
-     this.mensaje = "PERDISTE!!";
-   }
-
-   rojo(){
-     let div = document.getElementById("divMensaje") as unknown as any;
-     div.className = 'partidaPerdida';
-   }
-
-   verde(){
-     let div = document.getElementById("divMensaje") as unknown as any;
-     div.className = 'partidaGanada';
-   }
-
 
   verificacionDeResultado(){
     if(this.nuevoJuego.verificacionResultado()){
@@ -142,9 +149,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     return this.nuevoJuego.cuenta += " " + "=" + " " + this.nuevoJuego.resultado;
   }
 
-   inicializaRonda(){
-    this.nroRonda = 1;
-   }
+
 
 
 
