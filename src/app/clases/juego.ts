@@ -2,20 +2,17 @@ export abstract class Juego {
   public nombre = 'Sin Nombre';
   public jugador: string;
   public gano = false;
-  intentos : number;
-
+  public intentos : number;
+  public puntaje : number;
 
   constructor(nombre?: string, gano?: boolean,jugador?:string,
-              intentos?:any,resultado?:string) {
-    if (nombre)
-      this.nombre = nombre;
+              intentos?:any,puntaje?:number) {
 
-    if (gano)
-      this.gano = gano;
-    if(jugador)
-      this.jugador=jugador;
-    else
-      this.jugador= "natalia natalia";
+      this.nombre = nombre;
+      this.gano   = gano;
+     this.jugador = jugador;
+     this.intentos = intentos;
+     this.puntaje = puntaje;
   }
 
 
