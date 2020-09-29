@@ -75,13 +75,13 @@
   <div class="design-w3l">
     <div class="mail-form-agile">
       <form>
-        <input type="text" name="name" placeholder="Nombre de usuario o correo" required=""/>
-        <input type="password"  name="password" class="padding" placeholder="contraseña" required=""/>
+        <input type="text"  [(ngModel)]="usuario._email" required name="name" placeholder="Nombre de usuario o correo" required=""/>
+        <input type="password" [(ngModel)]="usuario._pass" required name="password" class="padding" placeholder="contraseña" required=""/>
         <input type="password"  name="repeatPassword" class="padding" placeholder="repita contraseña" required=""/>
         <br>
         <div class="form-group">
           <div class="col-md-8">
-            <input type="checkbox" id="recordar" class="form-check-input" value="">
+            <input type="checkbox" id="recordar" class="form-check-input" value="" required>
             <label for="recordar" style="color: white">Acepto Terminos y Condiciones</label>
           </div>
           <br>
@@ -90,10 +90,10 @@
       <div class="container">
         <div class="row botones">
           <div class="col-md-6">
-            <button type="button">Registrarse</button>
+            <button type="button" (click)="onRegister()" >Registrarse</button>
           </div>
           <div class="col-md-6">
-            <button type="button">Cancelar</button>
+            <button type="button" (click)="cancelar()">Cancelar</button>
           </div>
         </div>
         <br>
