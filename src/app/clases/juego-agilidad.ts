@@ -4,16 +4,16 @@ export class JuegoAgilidad extends Juego {
    numeroUno: number ;
    numeroDos: number ;
    operador: string ;
+   jugador : string ;
   resultado: number ;
   resultadoUsuario: number ;
-  partida : boolean ;
   puntaje: number ;
   cuenta : string ;
   estiloMensaje : string;
 
 
   constructor(nombre?: string, gano?: boolean, jugador?: string,
-              intentos? :any, resultado?: string){
+              intentos? :any, resultado?: number){
          super("Juego Agilidad",gano,jugador,intentos,resultado);
   }
 
@@ -52,15 +52,11 @@ export class JuegoAgilidad extends Juego {
   }
 
   public obtenerPuntaje(jugada : boolean){
-    if(jugada){
-      this.puntaje = this.puntaje + 5;
-    }else {
-      this.puntaje = this.puntaje + 1;
+    (jugada) ?   this.puntaje = this.puntaje + 5 :  this.puntaje = this.puntaje + 1;
     }
-  }
 
   public obtenerPartida(){
-    (this.puntaje <= 13) ? this.partida = false : this.partida = true;
+    (this.puntaje <= 13) ? this.gano = false : this.gano = true;
   }
 
   public puntajeInicial(){
