@@ -19,15 +19,16 @@ export class PersistenceService {
        jugador: juego.jugador,
        resultado : juego.gano ,
        intentos : juego.intentos,
-       puntaje: juego.puntaje
+       puntaje: juego.puntaje,
+       fecha: new Date()
      }).catch(error => {
          console.log("Error al agregar una coleccion", error);
      });
 
   }
 
-  public obtenerJuego(documentId : string){
-    this.firestore.collection('juegos').get().subscribe();
+  public obtenerJuego(){
+    return this.firestore.collection('juegos').get().subscribe();
   }
 
 
