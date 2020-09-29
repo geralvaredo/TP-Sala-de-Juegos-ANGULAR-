@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   isLogin = 'Principal';
   notLogin = 'Error';
   errorLogin = 'ErrorOnlogin->';
+
   clave= '';
   progreso: number;
   progresoMensaje="esperando...";
@@ -53,6 +54,7 @@ export class LoginComponent implements OnInit {
     try {
       const logging = await this.auth.login(this.usuario);
       if (logging) {
+        sessionStorage.setItem("usuario", JSON.stringify(this.usuario._email));
         this.auth.redirect(this.isLogin);
       } else {
         this.auth.redirect(this.notLogin);

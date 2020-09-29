@@ -23,6 +23,7 @@ export class AuthService {
   async login(usuario: Usuario): Promise< any> {
     try {
        const {user} = await this.afAuth.auth.signInWithEmailAndPassword(usuario._email, usuario._pass);
+        sessionStorage.setItem("usuario", JSON.stringify(usuario._email));
        return user;
     } catch (error) {
       console.log(this.errorLogin, error);
@@ -54,6 +55,7 @@ export class AuthService {
 
   async logOut(): Promise<void> {
     await this.afAuth.auth.signOut().then(res => {
+      sessionStorage.removeItem("usuario");
       this.redirect(this.paginaLogin);
     }).catch(error => {
       console.log(error);
