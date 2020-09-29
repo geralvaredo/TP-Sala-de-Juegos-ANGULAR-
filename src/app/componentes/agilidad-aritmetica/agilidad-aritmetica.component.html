@@ -9,7 +9,7 @@
   </div>
   <div  class="ronda">
     <p [hidden]="btnArranque">  Ronda {{ nroRonda }} </p>
-    <h2 [hidden]="!btnArranque"> Operacion: ( {{ nuevoJuego.cuenta }} )</h2>
+    <h2 [hidden]="!btnArranque"> Operacion: ( {{ agilidad.cuenta }} )</h2>
   </div>
   <div id="divMensaje"  [hidden]="!mostrarMensaje">
     <p>  {{ mensaje }} </p>
@@ -18,21 +18,23 @@
   <div class="arranque fondoAmarillo">
 
     <div class="alineacion">
-      <button id="arranque" [hidden] = "btnArranque" (click)="NuevoJuego()" class="btn btn-info btn-lg" > Arrancar Contador </button>
+      <button id="arranque" [hidden] = "btnContador" (click)="NuevoJuego()" class="btn btn-info btn-lg" > Arrancar Contador </button>
     </div>
-
     <h2 class="timer" [hidden]="ocultarVerificar"> Tiempo : 00:{{ Tiempo }} </h2>
     <div class="form-group row">
       <label for="resultado" [hidden]="!btnArranque" >Respuesta: </label>
-      <input id="resultado" [hidden]="!btnArranque" [(ngModel)]="nuevoJuego.resultadoUsuario"   placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control col-md-2" style="width:50%"/>
+      <input id="resultado" [hidden]="!btnArranque" [(ngModel)]="agilidad.resultadoUsuario"   placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control col-md-2" style="width:50%"/>
          </div>
     <div class="boton">
+      <div class="alineacion">
+        <button id="deNuevo" [hidden] = "btnFin" (click)="deNuevo()" class="btn btn-info btn-lg" > Jugar de Nuevo </button>
+      </div>
       <button [hidden]="ocultarVerificar" (click)="responder()" class="btn btn-success btn-lg"> Responder </button>
     </div>
   </div>
-  <input [hidden]="ocultarNumeros" [(ngModel)]="nuevoJuego.numeroUno" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  <input [hidden]="ocultarNumeros"   [(ngModel)]="nuevoJuego.numeroDos" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  <input [hidden]="ocultarNumeros" [(ngModel)]="nuevoJuego.operador" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  <input [hidden]="ocultarNumeros" [(ngModel)]="agilidad.numeroUno" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  <input [hidden]="ocultarNumeros"   [(ngModel)]="agilidad.numeroDos" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  <input [hidden]="ocultarNumeros" [(ngModel)]="agilidad.operador" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
 
 </div>
 

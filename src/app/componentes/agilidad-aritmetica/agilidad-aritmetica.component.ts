@@ -1,6 +1,7 @@
 import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {JuegoAgilidad} from '../../clases/juego-agilidad';
 import {Subscription} from 'rxjs';
+import {PersistenceService} from "../../servicios/persistence.service";
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -9,16 +10,19 @@ import {Subscription} from 'rxjs';
 })
 export class AgilidadAritmeticaComponent implements OnInit {
    @Output() enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
+  agilidad : JuegoAgilidad;
   ocultarVerificar: boolean;
   ocultarNumeros: boolean;
   btnArranque: boolean;
+  btnContador: boolean;
+  btnFin: boolean;
   Tiempo: number;
   repetidor:any;
   nroRonda : number;
   mensaje: string;
   mostrarMensaje: boolean;
   resultadoCorrecto: string;
+  jugador : string ;
   private subscription: Subscription;
 
   ngOnInit() {
@@ -28,31 +32,40 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.enviarJuego.emit(juego);
    }
 
-   constructor() {
+   constructor(private db: PersistenceService) {
      this.ocultarVerificar=true;
      this.inicializaRonda();
      this.Tiempo=15;
      this.ocultarNumeros = true;
      this.btnArranque = false;
-    this.nuevoJuego = new JuegoAgilidad();
+     this.btnContador = false;
+     this.btnFin = true ;
+    this.agilidad = new JuegoAgilidad();
      this.mostrarMensaje = false;
-     console.info("Inicio agilidad");
   }
 
   inicializaRonda(){
     this.nroRonda = 1;
   }
 
-  NuevoJuego() {
+   NuevoJuego() {
        if(this.nroRonda == 1){
-         this.nuevoJuego.puntajeInicial();
+         this.agilidad.puntajeInicial();
        }
       this.ocultarVerificar=false;
       this.btnArranque = true;
+      this.btnContador = true;
       this.mostrarMensaje = false;
-      this.nuevoJuego.operacionAleatoria();
-      this.nuevoJuego.resultadoUsuario = null;
+      this.agilidad.operacionAleatoria();
+      this.agilidad.resultadoUsuario = null;
       this.limpiarRepetidor();
+  }
+
+  datosDeLaPartida(intentos: number){
+    this.agilidad.jugador = this.obtenerJugador();
+    this.agilidad.intentos = intentos;
+    this.db.crearJuego(this.agilidad);
+    this.enviarJuego.emit(this.agilidad);
   }
 
 
@@ -63,15 +76,27 @@ export class AgilidadAritmeticaComponent implements OnInit {
    this.Tiempo=15;
    this.verificacionDeResultado();
    if(this.nroRonda == 6){
-     this.nuevoJuego.obtenerPartida();
+     this.btnContador = true;
+     this.btnFin = false;
+     this.agilidad.obtenerPartida();
+     console.log(this.agilidad);
      this.inicializaRonda();
+     this.datosDeLaPartida(5);
      this.condicion();
      }
    }
 
+  deNuevo(){
+    location.reload();
+  }
+
+  obtenerJugador(){
+    return this.jugador = sessionStorage.getItem('usuario');
+  }
+
    condicion(){
       this.mensaje = "";
-    if (this.nuevoJuego.partida){
+    if (this.agilidad.gano){
       this.divVerde();
     }else{
       this.divRojo();
@@ -81,13 +106,11 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
    divVerde(){
      this.verde();
-     this.nuevoJuego.gano = true;
      this.mensaje = "GANASTE!!" ;
    }
 
    divRojo(){
      this.rojo();
-     this.nuevoJuego.gano = false;
      this.mensaje = "PERDISTE!!";
    }
 
@@ -119,10 +142,12 @@ export class AgilidadAritmeticaComponent implements OnInit {
     this.mensaje = "";
     this.ocultarVerificar=true;
     this.btnArranque = false;
+    this.btnContador = false;
+
   }
 
   verificacionDeResultado(){
-    if(this.nuevoJuego.verificacionResultado()){
+    if(this.agilidad.verificacionResultado()){
       this.respuestaAcertada();
     } else{
       this.respuestaInvalida();
@@ -132,21 +157,21 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
 
    respuestaAcertada(){
-     this.nuevoJuego.obtenerPuntaje(true);
+     this.agilidad.obtenerPuntaje(true);
      this.verde();
      this.mensaje = "Respuesta Correcta";
      this.resultadoCorrecto = "";
    }
 
    respuestaInvalida(){
-     this.nuevoJuego.obtenerPuntaje(false);
+     this.agilidad.obtenerPuntaje(false);
      this.rojo();
      this.mensaje = "Respuesta Incorrecta";
      this.resultadoCorrecto = this.resolucionMatematica();
    }
 
   resolucionMatematica(){
-    return this.nuevoJuego.cuenta += " " + "=" + " " + this.nuevoJuego.resultado;
+    return this.agilidad.cuenta += " " + "=" + " " + this.agilidad.resultado;
   }
 
 
