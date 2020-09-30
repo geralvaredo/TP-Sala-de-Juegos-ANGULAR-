@@ -15,7 +15,9 @@ export abstract class Juego {
      this.puntaje = puntaje;
   }
 
-
+  obtenerJugador(){
+    return this.jugador = sessionStorage.getItem('usuario');
+  }
 
 
   public abstract verificacionResultado(): boolean;
