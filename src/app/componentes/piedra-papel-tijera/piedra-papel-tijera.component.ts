@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JuegoPiedraPapelTijera} from '../../clases/juego-piedra-papel-tijera';
+import {PersistenceService} from "../../servicios/persistence.service";
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -20,16 +21,18 @@ export class PiedraPapelTijeraComponent implements OnInit {
   imgVersus = './assets/imagenes/versusChico.jpeg';
 
 
-  constructor() {
+  constructor(private db: PersistenceService) {
     this.mostrar = true;
     this.resultados = false;
     this.ppt = new JuegoPiedraPapelTijera();
+    this.ppt.partida = "";
   }
 
   ngOnInit() {
   }
 
    jugar(){
+     this.ppt.partida = "";
      this.resultados = false;
      this.mostrar = false;
     this.mensaje = "Elija una de las opciones";
@@ -54,9 +57,6 @@ export class PiedraPapelTijeraComponent implements OnInit {
 
    obtenerGanador(){
      this.ppt.verificacionResultado();
-     console.log("mi jugada: " + this.ppt.eleccion);
-     console.log("jugada Rival: " + this.ppt.rival);
-     console.log("mensaje" + this.ppt.mensaje);
 
    }
 
@@ -67,8 +67,20 @@ export class PiedraPapelTijeraComponent implements OnInit {
      this.imgEleccion();
      this.imgRival();
      this.mensaje = this.ppt.mensaje;
-
+     this.datosDeLaPartida();
    }
+
+  datosDeLaPartida(){
+    if(this.ppt.partida !== "E"){
+      this.ppt.obtenerJugador();
+      this.ppt.intentos = 1;
+      (this.ppt.gano) ? this.ppt.puntaje = 1 : this.ppt.puntaje = 0;
+      this.db.crearJuego(this.ppt);
+    }
+  }
+
+
+
 
    imgEleccion(){
      switch (this.ppt.eleccion){
