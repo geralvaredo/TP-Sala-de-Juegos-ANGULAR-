@@ -37,10 +37,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  cancelar(){
-    this.auth.redirect('Principal');
-  }
-
   registro(){
     this.auth.redirect('Registro');
   }
