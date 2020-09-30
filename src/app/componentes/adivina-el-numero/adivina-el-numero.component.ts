@@ -33,9 +33,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   ngOnInit() {
   }
 
-  obtenerJugador(){
-    return this.nombreJugador = sessionStorage.getItem('usuario');
-  }
+
 
   generarnumero() {
     if(this.adivina.numeroIngresado !== undefined){
@@ -80,7 +78,7 @@ export class AdivinaElNumeroComponent implements OnInit {
 
 
   datosDeLaPartida( intentos: number , puntaje: number , partida: boolean ){
-    this.adivina.jugador = this.obtenerJugador();
+    this.adivina.obtenerJugador();
     this.adivina.gano = partida;
     this.adivina.puntaje = puntaje;
     this.adivina.intentos = intentos;

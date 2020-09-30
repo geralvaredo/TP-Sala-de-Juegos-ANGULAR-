@@ -62,7 +62,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
   }
 
   datosDeLaPartida(intentos: number){
-    this.agilidad.jugador = this.obtenerJugador();
+    this.agilidad.obtenerJugador();
     this.agilidad.intentos = intentos;
     this.db.crearJuego(this.agilidad);
     this.enviarJuego.emit(this.agilidad);
@@ -90,9 +90,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
     location.reload();
   }
 
-  obtenerJugador(){
-    return this.jugador = sessionStorage.getItem('usuario');
-  }
+
 
    condicion(){
       this.mensaje = "";
