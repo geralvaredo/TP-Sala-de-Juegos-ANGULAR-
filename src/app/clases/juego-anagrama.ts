@@ -1,25 +1,33 @@
 import {Juego} from './juego';
+import {element} from "protractor";
 
 export class JuegoAnagrama extends Juego{
 
   public respuesta:string;
-  public anagrama:string = '';
-  public intentos: number = 0;
+  public palabra:string = '';
+  public intentos: number = 1;
   public counter: number = 0 ;
-  private wordList:string[] = ["silbar", "acuerdo",
+  public wordList:string[] = [ "silbar", "acuerdo",
     "integrarla", "noguera", "prisa", "pagar"];
 
-  constructor(gano?: boolean, jugador?: string) {
-    super("Anagrama", gano, jugador);
+  public wordRepeat: string[] = [" ", "", "", "" , "", ""];
+
+  constructor(nombre?: string,  gano?: boolean, jugador?: string, intentos ? : number, resultado? : number) {
+    super("Anagrama", gano , jugador, intentos , resultado );
 
   }
+
+  listaPalabras(lista){
+
+  }
+
 
   verificacionResultado(): boolean {
     return null;
   }
 
   public checkrespuesta(): boolean{
-    switch (this.anagrama) {
+    switch (this.palabra) {
       case 'silbar':
         if(this.respuesta === 'brasil') {
           return true;
@@ -58,7 +66,14 @@ export class JuegoAnagrama extends Juego{
 
 
   public obtenerAnagrama() {
-    this.anagrama = this.wordList[Math.floor(Math.random() * 6)];
+    this.palabra = this.wordList[Math.floor(Math.random() * 7)];
+    while(this.wordRepeat.find(element => element == this.palabra)){
+      this.palabra = this.wordList[Math.floor(Math.random() * 7)];
+    }
+    this.wordRepeat.push(this.palabra);
+    //console.log(palabraRepetida);
+
+
   }
 
   public verificar(): boolean {
@@ -66,7 +81,8 @@ export class JuegoAnagrama extends Juego{
   }
 
   condicion(){
-      this.intentos = this.intentos + 1;
+      this.intentos++;
+      console.log(this.intentos);
   }
 
 

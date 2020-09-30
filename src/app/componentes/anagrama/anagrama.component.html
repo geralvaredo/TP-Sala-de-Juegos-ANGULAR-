@@ -6,12 +6,12 @@
   <div class="palabra"> <label> <p [hidden]="!hideComponent" > Palabra : {{  palabra }} </p> </label>  </div>
   <div [hidden] ='!hideComponent' class="row justify-content-center alineacion">
     <label>ingrese respuesta: </label>
-    <input [(ngModel)]="nuevoJuego.respuesta" placeholder="respuesta..." name="anagram" type="text" class="form-control col-md-4" style="width:50%"/>
+    <input [(ngModel)]="anagrama.respuesta" placeholder="respuesta..." name="anagram" type="text" class="form-control col-md-4" style="width:50%"/>
    </div>
   <h2 [hidden]="hideRespuesta" ><button (click)="respuesta()" class="btn btn-info btn-lg">Respuesta</button></h2>
-  <h2> <p *ngIf="nuevoJuego.anagrama!= ''"><i class="fa fa-spinner fa-spin"></i>Esperando que resuelva el anagrama</p></h2>
+  <h2> <p *ngIf="anagrama.palabra!= ''"><i class="fa fa-spinner fa-spin"></i>Esperando que resuelva el anagrama</p></h2>
   <h2><button [hidden]="hideJugar" (click)="generarPalabra()" class="btn btn-success btn-lg">Jugar</button></h2>
-  <h2 [hidden]="!nuevoJuego.gano || hideTag ">Acertó</h2>
+  <h2 [hidden]="!anagrama.gano || hideTag ">Acertó</h2>
   <div id="snackbar">{{message}}</div>
 
 </div>

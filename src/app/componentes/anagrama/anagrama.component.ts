@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {JuegoAnagrama} from '../../clases/juego-anagrama';
 import {isBoolean} from 'util';
 import {element} from 'protractor';
+import {PersistenceService} from "../../servicios/persistence.service";
 
 @Component({
   selector: 'app-anagrama',
@@ -12,7 +13,7 @@ export class AnagramaComponent implements OnInit {
 
   @Output() enviarJuego: EventEmitter<any> = new EventEmitter<any>();
 
-  nuevoJuego: JuegoAnagrama;
+  anagrama: JuegoAnagrama;
   message: string;
   palabra: string;
   hideComponent : boolean;
@@ -20,20 +21,21 @@ export class AnagramaComponent implements OnInit {
   hideRespuesta: boolean;
   hideJugar: boolean;
   resultado : boolean;
+  puntaje : number;
 
 
   ngOnInit() {
   }
 
-  constructor() {
+  constructor(private db: PersistenceService) {
     this.intentos() ;
   }
 
   generarPalabra(){
-    this.nuevoJuego.respuesta != "" ?  this.limpiarCampos() : "";
+    this.anagrama.respuesta != "" ?  this.limpiarCampos() : "";
      this.ocultarAlGenerarPalabra();
-     this.nuevoJuego.obtenerAnagrama();
-    this.palabra = this.nuevoJuego.anagrama;
+     this.anagrama.obtenerAnagrama();
+    this.palabra = this.anagrama.palabra;
 
   }
 
@@ -45,35 +47,55 @@ export class AnagramaComponent implements OnInit {
 
 
   public respuesta() {
-    this.nuevoJuego.counter++;
-    console.log("ronda: " + this.nuevoJuego.counter);
-    if(this.nuevoJuego.counter == 5){
+    this.anagrama.counter++;
+    console.log("ronda: " + this.anagrama.counter);
+    if(this.anagrama.counter == 5){
       this.rondaCerrada();
+      setTimeout(() => this.reiniciar(), 4000);
     }
     else{
-      this.nuevoJuego.verificar() ? this.resultadoVerificado() : "";
+      this.anagrama.verificar() ? this.resultadoVerificado() : "";
       this.generarPalabra();
     }
 
   }
 
-  resultadoVerificado(){
-    this.nuevoJuego.condicion();
-    console.log(this.nuevoJuego.intentos);
-    this.enviarJuego.emit(this.nuevoJuego);
-    this.nuevoJuego.anagrama = '';
-    this.hideTag = false;
-    this.nuevoJuego.respuesta = "";
+  reiniciar(){
+    location.reload();
   }
+
+
+  resultadoVerificado(){
+    this.anagrama.condicion();
+    this.enviarJuego.emit(this.anagrama);
+    this.anagrama.palabra = '';
+    this.hideTag = false;
+    this.anagrama.respuesta = "";
+  }
+
+
 
   rondaCerrada(){
     this.resultado =  this.evaluarRondas();
     this.resultado ? this.mostrarMensaje("Ganador", this.resultado) :  this.mostrarMensaje("Perdedor", this.resultado);
+    console.log(this.anagrama);
+    this.datosDeLaPartida();
+    this.db.crearJuego(this.anagrama);
    }
 
-   evaluarRondas(){
-   this.nuevoJuego.intentos >= 3 ?  this.nuevoJuego.gano = true : this.nuevoJuego.gano = false;
-   return this.nuevoJuego.gano;
+    datosDeLaPartida(){
+    this.anagrama.obtenerJugador();
+    this.puntaje =  this.anagrama.gano ? 5 : 1 ;
+    this.anagrama.puntaje = this.anagrama.intentos * this.puntaje;
+    this.db.crearJuego(this.anagrama);
+    this.enviarJuego.emit(this.anagrama);
+  }
+
+
+
+  evaluarRondas(){
+   this.anagrama.intentos >= 3 ?  this.anagrama.gano = true : this.anagrama.gano = false;
+   return this.anagrama.gano;
    }
 
 
@@ -90,16 +112,21 @@ export class AnagramaComponent implements OnInit {
   }
 
    intentos(){
-     this.nuevoJuego = new JuegoAnagrama();
+     this.anagrama = new JuegoAnagrama();
      this.hideComponent = false;
      this.hideJugar = false ;
      this.hideTag = true;
      this.hideRespuesta = true;
    }
 
+
+
+
+
+
    limpiarCampos(){
-     this.nuevoJuego.respuesta = "";
-     this.nuevoJuego.gano = null;
+     this.anagrama.respuesta = "";
+     this.anagrama.gano = null;
      var x = document.getElementById("snackbar");
      x.className = "";
      this.message = "";
