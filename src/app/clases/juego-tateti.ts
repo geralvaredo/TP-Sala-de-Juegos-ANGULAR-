@@ -4,7 +4,13 @@ export class JuegoTateti extends Juego{
 
    rival: number;
    ganadorPartida: string ;
+   partida : boolean;
   tablero: Array<string> = ["" , "" , "" , "" , "" , "" , "" , "" , ""];
+
+  constructor(nombre?: string, gano?: boolean, jugador?: string,
+              intentos? :any, resultado?: number){
+    super("TA TE TI",gano,jugador,intentos,resultado);
+  }
 
 
   verificacionResultado(): boolean {
@@ -29,10 +35,11 @@ export class JuegoTateti extends Juego{
       //diagonales
       (this.tablero[0] == simbolo && this.tablero[4] == simbolo && this.tablero[8] == simbolo) ||
       (this.tablero[2] == simbolo && this.tablero[4] == simbolo && this.tablero[6] == simbolo)){
-       this.gano = true;
+
+       this.partida = true;
     }
 
-    return this.gano;
+    return this.partida;
   }
 
 

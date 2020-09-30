@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {JuegoTateti} from '../../clases/juego-tateti';
+import {PersistenceService} from "../../servicios/persistence.service";
 
 @Component({
   selector: 'app-tateti',
@@ -26,7 +27,7 @@ export class TatetiComponent implements OnInit {
   dibujo9: string = "";
 
 
-  constructor() {
+  constructor(private db: PersistenceService) {
     this.jugar = false;
     this.botones = false;
     this.tablero = true;
@@ -60,6 +61,7 @@ export class TatetiComponent implements OnInit {
   }
 
   finalizar(){
+    this.datosDeLaPartida();
     this.cuentaMarcas = 9;
   }
 
@@ -77,6 +79,16 @@ export class TatetiComponent implements OnInit {
 
   }
 
+  datosDeLaPartida(){
+    this.tateti.obtenerJugador();
+    console.log(this.tateti);
+    (this.tateti.gano) ?  this.tateti.puntaje = 1 : this.tateti.puntaje = 0 ;
+    this.tateti.intentos = this.cuentaMarcas;
+    this.db.crearJuego(this.tateti);
+  }
+
+
+
   opcion(event: Event){
      this.eleccion = parseInt(event.srcElement.id);
      this.generarJugada(this.eleccion);
@@ -90,8 +102,8 @@ export class TatetiComponent implements OnInit {
    chequearMensaje(){
      if(this.cuentaMarcas < 9 && this.tateti.ganadorPartida !== "" || this.cuentaMarcas === 9 && this.tateti.ganadorPartida === "" || this.cuentaMarcas === 9 &&  this.tateti.ganadorPartida !== "" ){
        switch (this.tateti.ganadorPartida){
-         case 'maquina': this.mostrarMensaje("PERDISTE!!",1); break;
-         case 'jugador': this.mostrarMensaje("GANASTE!!",2); break;
+         case 'MAQUINA': this.mostrarMensaje("PERDISTE!!",1); break;
+         case 'JUGADOR': this.mostrarMensaje("GANASTE!!",2); break;
          case ''       : this.mostrarMensaje("EMPATE!!", 3); break;
          default: break;
        }
@@ -112,23 +124,32 @@ export class TatetiComponent implements OnInit {
      let x = "X";
      if(this.cuentaMarcas < 9){
        if (this.tateti.tablero[eleccion] == ""){
-         this.tateti.tablero[eleccion] = x;
-         this.dibujoTablero(eleccion,x);
-         this.cuentaMarcas++;
+          this.casilleroVacio(x,eleccion);
          if(this.tateti.verificarVictoria(x)){
-           this.deshabilitarBotones();
-           this.tateti.ganadorPartida = "jugador";
-           this.chequearMensaje();
-           this.finalizar();
-
+           this.situacionDeJugadores(true,"JUGADOR");
          }
-         // console.log(this.tateti.verificarVictoria(x));
+
        }
      }
 
-    console.log(this.tateti.tablero);
-
   }
+
+    casilleroVacio(valor : string, eleccion : number){
+      this.tateti.tablero[eleccion] = valor;
+      this.dibujoTablero(eleccion,valor);
+      this.cuentaMarcas++;
+    }
+
+
+
+  situacionDeJugadores(ganador: boolean, jugador: string){
+    this.deshabilitarBotones();
+    this.tateti.ganadorPartida = jugador;
+    this.tateti.gano = ganador;
+    this.chequearMensaje();
+    this.finalizar();
+  }
+
 
    generarJugadaRival(){
     let opcionRival = this.tateti.opcionRival();
@@ -139,15 +160,9 @@ export class TatetiComponent implements OnInit {
     let O = "O";
     if(this.cuentaMarcas < 9){
       if (this.tateti.tablero[opcionRival] == "" ){
-        this.tateti.tablero[opcionRival] = O;
-        this.dibujoTablero(opcionRival,O);
-        this.cuentaMarcas++;
+        this.casilleroVacio(O,opcionRival);
         if(this.tateti.verificarVictoria(O)){
-          this.deshabilitarBotones();
-          this.tateti.ganadorPartida = "maquina";
-          this.chequearMensaje();
-          this.finalizar();
-
+            this.situacionDeJugadores(false,"MAQUINA");
         }
       }else{
            if(this.tateti.tablero[opcionRival] != ""){
@@ -157,6 +172,8 @@ export class TatetiComponent implements OnInit {
 
     }
   }
+
+
 
   dibujoTablero(eleccion: number, mensajito: string){
     this.colorLetraCasillero(eleccion,mensajito);
