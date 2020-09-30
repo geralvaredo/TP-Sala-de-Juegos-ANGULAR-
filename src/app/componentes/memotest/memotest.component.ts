@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Memotest} from '../../clases/memotest';
+import {PersistenceService} from "../../servicios/persistence.service";
 
 @Component({
   selector: 'app-memotest',
@@ -7,8 +8,6 @@ import {Memotest} from '../../clases/memotest';
   styleUrls: ['./memotest.component.css']
 })
 export class MemotestComponent implements OnInit {
-
-
 
   memotest: Memotest;
   comenzar:boolean = false;
@@ -19,19 +18,17 @@ export class MemotestComponent implements OnInit {
   tarjetaB = null;
   indexA:number;
   indexB:number;
-  intentos:number;
+  //intentos:number;
 
-  constructor() {
+  constructor(private db: PersistenceService) {
     this.memotest = new Memotest();
   }
-
-
 
   comenzarJuego() {
     this.memotest = new Memotest();
     this.comenzar = true;
     this.memotest.ordenarAleatoriamente();
-    this.intentos = 10;
+    this.memotest.intentos = 11;
     this.ocultar();
   }
 
@@ -54,8 +51,8 @@ export class MemotestComponent implements OnInit {
           if(this.tarjetaA == this.tarjetaB) {
             this.verficiarGanador();
           } else {
-            this.intentos--;
-            if(this.intentos < 0) {
+            this.memotest.intentos--;
+            if(this.memotest.intentos < 1) {
               this.jugadorPerdio();
             } else {
               this.mostrar[this.indexA] = false;
@@ -69,6 +66,15 @@ export class MemotestComponent implements OnInit {
       }, 500);
     }
   }
+
+
+  datosDeLaPartida(gano: boolean){
+    this.memotest.obtenerJugador();
+    this.memotest.gano = gano ;
+    this.memotest.puntaje = this.memotest.intentos;
+    this.db.crearJuego(this.memotest);
+  }
+
 
   ocultar() {
     for(let i = 0; i < 12; i++) {
@@ -91,12 +97,14 @@ export class MemotestComponent implements OnInit {
   jugadorGano() {
     this.mostrarMensaje = true;
     this.mensajeConColor("neon-verde",'GANASTE!!');
+    this.datosDeLaPartida(true );
     setTimeout(() => this.reiniciar(), 6000);
   }
 
   jugadorPerdio() {
     this.mostrarMensaje = true;
     this.mensajeConColor("neon-rojo","PERDISTE!!");
+    this.datosDeLaPartida(false);
     setTimeout(() => this.reiniciar(), 6000);
   }
 

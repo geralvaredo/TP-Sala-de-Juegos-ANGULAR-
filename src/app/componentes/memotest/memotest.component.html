@@ -2,7 +2,7 @@
   <h2 class="neon"> Memotest </h2>
 
       <div id="mensaje" ><h2 *ngIf="mostrarMensaje">{{mensaje}}</h2></div>
-      <h2 id="intentos" *ngIf="comenzar && !mostrarMensaje">Intentos : {{intentos}} </h2>
+      <h2 id="intentos" *ngIf="comenzar && !mostrarMensaje">Intentos : {{memotest.intentos}} </h2>
       <div *ngIf="comenzar && !mostrarMensaje" class="casilleros">
        <button class="c0" [ngClass]="{mario: memotest.tablero[0] == '0' && mostrar[0], luigi: memotest.tablero[0] == '1' && mostrar[0], toad: memotest.tablero[0] == '2' && mostrar[0], bowser: memotest.tablero[0] == '3' && mostrar[0],yoshi: memotest.tablero[0] == '4' && mostrar[0], wario: memotest.tablero[0] == '5' && mostrar[0]}" (click)="jugar(0)"></button>
         <button class="c1" [ngClass]="{mario: memotest.tablero[1] == '0' && mostrar[1], luigi: memotest.tablero[1] == '1' && mostrar[1], toad: memotest.tablero[1] == '2' && mostrar[1], bowser: memotest.tablero[1] == '3' && mostrar[1],yoshi: memotest.tablero[1] == '4' && mostrar[1], wario: memotest.tablero[1] == '5' && mostrar[1]}" (click)="jugar(1)"></button>
