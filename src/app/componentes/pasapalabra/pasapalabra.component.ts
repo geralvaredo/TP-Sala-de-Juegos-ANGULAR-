@@ -90,7 +90,6 @@ export class PasapalabraComponent implements OnInit {
   }
 
   jugar(){
-    this.db.crearPasapalabra(this.words);
     this.descripcion = true ;
     this.cuestionario = false;
     this.iconCerrar = false ;
