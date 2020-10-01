@@ -1,5 +1,5 @@
 .imagenFondo{
-  width: 1421px;
+  width: 1271px;
   height: 800px;
   background-repeat: no-repeat;
   background-color: #1993CC;
@@ -15,7 +15,7 @@
 table{
   border: solid 4px white;
   width: 70%;
-  height: 50%;
+  height: 20%;
   margin-left: auto;
   margin-right: auto;
 
@@ -33,6 +33,23 @@ tr:hover{
 
 td {
   text-align: center;
-  width: 5px;
+  width: 3px;
 
+}
+th{
+  text-align: center;
+
+}
+
+.avatar {
+  /* cambia estos dos valores para definir el tamaño de tu círculo */
+  height: 100px;
+  width: 100px;
+  /* los siguientes valores son independientes del tamaño del círculo */
+  background-repeat: no-repeat;
+  background-position: 50%;
+  border-radius: 50%;
+  background-size: 100% auto;
+  border: 3px solid;
+  border-color: blue;
 }
