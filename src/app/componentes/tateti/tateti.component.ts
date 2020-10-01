@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {JuegoTateti} from '../../clases/juego-tateti';
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tateti',
@@ -27,7 +28,7 @@ export class TatetiComponent implements OnInit {
   dibujo9: string = "";
 
 
-  constructor(private db: PersistenceService) {
+  constructor(private db: PersistenceService, private route: Router) {
     this.jugar = false;
     this.botones = false;
     this.tablero = true;
@@ -37,7 +38,9 @@ export class TatetiComponent implements OnInit {
   ngOnInit() {
   }
 
-
+  volver(){
+    this.route.navigate(["Juegos"]);
+  }
 
   resetear(){
     this.tateti.gano = null;

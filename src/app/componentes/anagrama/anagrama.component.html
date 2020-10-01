@@ -12,6 +12,7 @@
   <h2> <p *ngIf="anagrama.palabra!= ''"><i class="fa fa-spinner fa-spin"></i>Esperando que resuelva el anagrama</p></h2>
   <h2><button [hidden]="hideJugar" (click)="generarPalabra()" class="btn btn-success btn-lg">Jugar</button></h2>
   <h2 [hidden]="!anagrama.gano || hideTag ">Acertó</h2>
+  <button id="volver" class="btn btn-success btn-lg comenzar" (click) = "volver()">Volver</button>
   <div id="snackbar">{{message}}</div>
 
 </div>

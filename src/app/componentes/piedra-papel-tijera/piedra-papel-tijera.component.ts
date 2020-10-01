@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {JuegoPiedraPapelTijera} from '../../clases/juego-piedra-papel-tijera';
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-piedra-papel-tijera',
@@ -21,7 +22,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
   imgVersus = './assets/imagenes/versusChico.jpeg';
 
 
-  constructor(private db: PersistenceService) {
+  constructor(private db: PersistenceService, private route: Router) {
     this.mostrar = true;
     this.resultados = false;
     this.ppt = new JuegoPiedraPapelTijera();
@@ -29,6 +30,11 @@ export class PiedraPapelTijeraComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+
+  volver(){
+    this.route.navigate(["Juegos"]);
   }
 
    jugar(){

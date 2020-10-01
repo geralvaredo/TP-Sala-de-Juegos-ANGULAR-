@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Pasapalabra} from '../../clases/pasapalabra';
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pasapalabra',
@@ -59,7 +60,7 @@ export class PasapalabraComponent implements OnInit {
 
 
 
-  constructor(private db : PersistenceService) {
+  constructor(private db : PersistenceService, private route: Router) {
     this.pasapalabra = new Pasapalabra();
     this.tiempo = 150;
     this.puntaje = 25;
@@ -76,6 +77,11 @@ export class PasapalabraComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+
+  volver(){
+    this.route.navigate(["Juegos"]);
   }
 
 

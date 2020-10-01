@@ -3,6 +3,7 @@ import {JuegoAnagrama} from '../../clases/juego-anagrama';
 import {isBoolean} from 'util';
 import {element} from 'protractor';
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-anagrama',
@@ -27,9 +28,14 @@ export class AnagramaComponent implements OnInit {
   ngOnInit() {
   }
 
-  constructor(private db: PersistenceService) {
+  constructor(private db: PersistenceService, private route: Router) {
     this.intentos() ;
   }
+
+  volver(){
+    this.route.navigate(["Juegos"]);
+  }
+
 
   generarPalabra(){
     this.anagrama.respuesta != "" ?  this.limpiarCampos() : "";

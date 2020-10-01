@@ -32,7 +32,10 @@
       <p> Para ganar debe responder correctamente un minimo de 12 preguntas. Es 1 punto por respuesta correcta y 0 por respuesta incorrecta.</p>
       <h4> BUENA SUERTE!!</h4>
       <a id="js--new-game" (click)="jugar()" class="btn"><i class="icon-play"></i>Jugar</a>
-      </div>
+      <a id="volver" (click)="volver()" class="btn">Volver</a>
+
+
+    </div>
     <div [hidden]="cuestionario" class="question-controls">
       <p  class="hint"> {{condicion}} </p>
       <p  class="definition"> {{definicion}} </p>

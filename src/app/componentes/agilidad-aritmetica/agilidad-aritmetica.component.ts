@@ -2,6 +2,7 @@ import {Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChil
 import {JuegoAgilidad} from '../../clases/juego-agilidad';
 import {Subscription} from 'rxjs';
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-agilidad-aritmetica',
@@ -28,11 +29,15 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ngOnInit() {
   }
 
+  volver(){
+    this.route.navigate(["Juegos"]);
+  }
+
    enviarJugada(juego: JuegoAgilidad){
     this.enviarJuego.emit(juego);
    }
 
-   constructor(private db: PersistenceService) {
+   constructor(private db: PersistenceService , private route: Router) {
      this.ocultarVerificar=true;
      this.inicializaRonda();
      this.Tiempo=15;

@@ -28,8 +28,11 @@
     <div class="boton">
       <div class="alineacion">
         <button id="deNuevo" [hidden] = "btnFin" (click)="deNuevo()" class="btn btn-info btn-lg" > Jugar de Nuevo </button>
+        <button [hidden]="ocultarVerificar" (click)="responder()" class="btn btn-success btn-lg"> Responder </button>
+        <button id="volver" class="btn btn-success btn-lg comenzar" (click) = "volver()">Volver</button>
       </div>
-      <button [hidden]="ocultarVerificar" (click)="responder()" class="btn btn-success btn-lg"> Responder </button>
+
+
     </div>
   </div>
   <input [hidden]="ocultarNumeros" [(ngModel)]="agilidad.numeroUno" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>

@@ -14,6 +14,7 @@
   <h2 class="neon"> TA TE TI </h2>
 
   <h2><button [hidden]="jugar" (click)="comienzo()" class="btn btn-success btn-lg jugar col-md-2">Jugar</button></h2>
+  <button id="volver" class="btn btn-success jugar btn-lg comenzar" (click) = "volver()">Volver</button>
   <div id="snackbar">{{message}}</div>
   <div [hidden]="tablero" class="arriba">
     <button id="0" [disabled]="botones" (click)="opcion($event)" class="botones"> {{ dibujo1 }} </button>

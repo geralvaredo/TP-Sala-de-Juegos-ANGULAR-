@@ -11,6 +11,10 @@ label{
 
 }
 
+#volver{
+  margin-left: 20px;
+}
+
 .arranque input[type='text']{
   text-align: center;
   margin-top: 10px;
@@ -23,6 +27,10 @@ label{
 .arranque #arranque{
   margin-top: 70px;
   text-align: center;
+}
+
+h4{
+   padding-top: 10px;
 }
 
 

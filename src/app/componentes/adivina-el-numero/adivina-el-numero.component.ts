@@ -2,6 +2,7 @@
 import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina'
 import {PersistenceService} from "../../servicios/persistence.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -20,7 +21,7 @@ export class AdivinaElNumeroComponent implements OnInit {
   nombreJugador: string ;
 
 
-  constructor(private db: PersistenceService){
+  constructor(private db: PersistenceService, private route: Router){
 
     this.adivina = new JuegoAdivina();
     this.ocultarVerificar=true;
@@ -33,6 +34,10 @@ export class AdivinaElNumeroComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  volver(){
+    this.route.navigate(["Juegos"]);
+  }
 
 
   generarnumero() {

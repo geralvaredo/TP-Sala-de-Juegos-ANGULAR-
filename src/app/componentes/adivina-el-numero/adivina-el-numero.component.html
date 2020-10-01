@@ -15,16 +15,13 @@
        <label *ngIf="jugar" >ingrese numero:</label>
        <input *ngIf="jugar" [(ngModel)]="adivina.numeroIngresado" name="numeroIngresado" type="text" class="form-control col-md-2"/>
        <h2><button [hidden]="jugar" (click)="generarnumero()" class="btn btn-success btn-lg">Jugar</button></h2>
-         <h2><button *ngIf="!ocultarVerificar" (click)="verificar()"  class="btn btn-success btn-lg">número secreto</button></h2>
+       <h2><button *ngIf="!ocultarVerificar" (click)="verificar()"  class="btn btn-success btn-lg">número secreto</button></h2>
        <h1>{{adivina.numeroIngresado}}</h1>
        <h3 [hidden]="ocultarVerificar">usted aún no gano </h3>
        <h3 [hidden]="!adivina.gano">usted adivino el número</h3>
        <h2><p *ngIf="!ocultarVerificar" ><i class="fa fa-spinner fa-spin"></i>Esperando que ingrese un número</p></h2>
+       <button id="volver" class="btn btn-success btn-lg comenzar" (click) = "volver()">Volver</button>
      </div>
-
-
-
-
 
   </form>
   <div id="snackbar">{{Mensajes}}</div>

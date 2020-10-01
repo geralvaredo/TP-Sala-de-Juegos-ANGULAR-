@@ -12,6 +12,7 @@
     <div class="inicio">
       <h1  class="neon" *ngIf="mostrar" id="principal">Piedra Papel o Tijera!</h1>
       <button  *ngIf="mostrar"  class="btn btn-success btn-lg"   (click) = "jugar()"> Jugar </button>
+      <button id="volver" class="btn btn-success btn-lg comenzar" (click) = "volver()">Volver</button>
       <div class="row justify-content-center neon-violeta">
         <h1 *ngIf="resultados" id="tuJugada"> Tu jugada </h1>
         <h1 *ngIf="resultados" id="elRival" > La Maquina </h1>
