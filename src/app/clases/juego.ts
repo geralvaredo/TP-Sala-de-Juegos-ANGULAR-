@@ -4,6 +4,8 @@ export abstract class Juego {
   public gano = false;
   public intentos : number;
   public puntaje : number;
+  fecha: any;
+  resultado: any;
 
   constructor(nombre?: string, gano?: boolean,jugador?:string,
               intentos?:any,puntaje?:number) {
