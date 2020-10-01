@@ -15,17 +15,21 @@ export class RegistroComponent implements OnInit {
 
   isRegistered = 'Juegos';
   registerError = 'Error';
-  usuario = new Usuario();
-  jugador = new Jugador();
+  usuario : Usuario;
+  jugador : Jugador;
   ErrorOnRegister = "ErrorOnRegister";
   bowser =  './assets/imagenes/bowser.jpeg' ;
   mario = './assets/imagenes/marioCarton.jpeg' ;
   peach = './assets/imagenes/peach.png';
   yoshi = './assets/imagenes/yoshiCarton.jpeg';
-
+  toad = './assets/imagenes/toadCarton.jpeg';
+  luigi = './assets/imagenes/luigiCarton.png';
+  wario = './assets/imagenes/warioCarton.jpeg';
+  dk = './assets/imagenes/dk.jpeg' ;
 
   constructor(private auth: AuthService , private  db: PersistenceService) {
-
+    this.usuario = new Usuario();
+    this.jugador = new Jugador();
   }
 
   ngOnInit() {
@@ -38,25 +42,24 @@ export class RegistroComponent implements OnInit {
 
   async onRegister(): Promise<void> {
     try {
-         if( this.usuarioVacio() && this.jugadorVacio()){
-             if(this.contrasenaConRepeticion){
-               const user = await this.auth.register(this.usuario);
-               if (user) {
-                 sessionStorage.setItem("usuario", JSON.stringify(this.usuario._email));
-                 this.jugador.nombre = this.usuario._email;
-                 this.db.crearJugadores(this.jugador);
-                 this.usuario._email = "";
-                 this.usuario._pass = "";
-                 this.auth.redirect(this.isRegistered);
-               } else {
-                 this.auth.redirect(this.registerError);
-               }
-             }
+          let valor = this.contrasenaConRepeticion();
+          if(valor){
+            if( this.usuarioVacio() && this.jugadorVacio() && this.terminosVacio()){
+                const user = await this.auth.register(this.usuario);
+                if (user) {
+                   this.registroCorrecto();
+                  this.auth.redirect(this.isRegistered);
+                } else {
+                  this.auth.redirect(this.registerError);
+                }
+            }
+            else{
+              this.auth.redirect(this.registerError);
+            }
+          } else{
+            this.auth.redirect(this.registerError);
+          }
 
-         }
-         else{
-           alert( "Debe completar todos los campos inclusive los terminos y condiciones");
-         }
 
     } catch (error) {
       console.log(this.ErrorOnRegister, error);
@@ -71,15 +74,37 @@ export class RegistroComponent implements OnInit {
    }
 
    jugadorVacio(){
-    return (this.jugador.apodo !== null && this.jugador.sexo !== null && this.jugador.avatar !== null && this.jugador.terminos !== null) ;
+    return (this.apodoVacio() &&  this.avatarVacio() && this.sexoVacio() );
    }
 
    contrasenaConRepeticion(){
-    return (this.usuario._pass == this.usuario._passRepeat);
+    return (this.usuario._pass.toString() == this.usuario._passRepeat.toString());
    }
 
-   cargaJugador(){
+   sexoVacio() {
+     return (this.jugador.sexo !== null && this.jugador.sexo !== undefined);
 
    }
+
+   apodoVacio(){
+    return ( this.jugador.apodo !== null && this.jugador.apodo !== undefined );
+   }
+
+   avatarVacio() {
+     return (this.jugador.avatar !== null && this.jugador.avatar !== undefined);
+   }
+
+   terminosVacio(){
+      return (this.jugador.terminos !== null && this.jugador.terminos !== undefined && this.jugador.terminos !== false);
+   }
+
+ registroCorrecto(){
+   sessionStorage.setItem("usuario", JSON.stringify(this.usuario._email));
+   this.jugador.nombre = this.usuario._email;
+   this.db.crearJugadores(this.jugador);
+   this.usuario._email = "";
+   this.usuario._pass = "";
+ }
+
 
 }

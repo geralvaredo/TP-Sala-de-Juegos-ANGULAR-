@@ -20,9 +20,7 @@ body{
   font-family: "Asap-Regular";
   src:url(../../componentes/login/fonts/Asap-Regular.ttf);
 }
-.padding-all{
-  padding:100px;
-}
+
 
 .header {
   text-align: center;
@@ -46,6 +44,8 @@ p ,a{
 .terminos{
   margin-bottom: 50px;
   margin-top: -60px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .terminos p{
@@ -73,8 +73,10 @@ p ,a{
 
 
 .design-w3l{
-  width:58%;
-  margin:0 auto;
+  width:68%;
+  margin-left: 20%;
+  margin-right: auto;
+  text-align: center;
 }
 
 
@@ -85,12 +87,11 @@ p ,a{
 
 
 .mail-form-agile {
-  padding: 50px 40px;
+  padding: 40px 50px;
+  width: 700px;
   text-align: center;
-  margin:0px;
   background: rgba(23, 218, 218, 0.18);
   color: #000;
-  margin:0 auto;
 }
 
 .padding {
@@ -132,32 +133,23 @@ label{
   color:#fff;
 }
 
-.mail-form-agile button{
-  padding: 10px 10px ;
-}
+
 
 ::-webkit-input-placeholder{
   color:#b4b0b0 !important;
   font-weight:400;
 }
-.mail-form-agile button {
-  font-size: 18px;
-  padding: 10px 20px;
-  letter-spacing:1.2px;
-  border: none;
-  text-transform: capitalize;
-  outline: none;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  background: #D65B88;
+button {
+  background-color: #D65B88;
   color: #fff;
-  cursor: pointer;
-  margin: 0 auto;
-  font-family: "Asap-Regular";
-  -webkit-transition-duration: 0.9s;
-  transition-duration: 0.9s;
 }
+
+button:hover{
+  background-color: green;
+}
+
+
+
 .mail-form-agile input[type="submit"]:hover {
   -webkit-transition-duration: 0.9s;
   transition-duration: 0.9s;
@@ -189,167 +181,13 @@ label{
 }
 
 
+
+
 /*-- responsive media queries --*/
 
 
-@media screen and (max-width:1440px){
-  .design-w3l {
-    width: 40%;
-  }
-  .header h1 img{
-    width:8.5%;
-  }
-
-}
-
-@media screen and (max-width:1366px){
-
-
-}
-
-@media screen and (max-width:1280px){
-  .design-w3l {
-    width: 46%;
-  }
-  .mail-form-agile {
-    padding: 40px;
-  }
-}
-
-
-@media screen and (max-width:1080px){
-  .padding-all{
-    padding:80px 50px;
-  }
-  .header h1 img{
-    width:8%;
-  }
-  .header h1 {
-    font-size: 44px;
-  }
-}
-
-
-@media screen and (max-width:991px){
-  .design-w3l {
-    width: 54%;
-  }
-
-
-}
-
-
-@media screen and (max-width:800px){
-  .padding-all{
-    padding:75px 30px;
-  }
-  .design-w3l {
-    width: 60%;
-  }
-  .header h1 {
-    font-size: 40px;
-  }
-  .header {
-    padding-bottom: 50px;
-  }
-  .footer {
-    padding-top: 50px;
-  }
 
 
 
-}
 
-
-@media screen and (max-width:667px){
-  .design-w3l {
-    width: 75%;
-  }
-
-}
-
-@media screen and (max-width:640px){
-  .header h1 img {
-    width: 10%;
-  }
-  .header h1 {
-    font-size: 36px;
-  }
-  .mail-form-agile {
-    padding: 35px 30px;
-  }
-  .mail-form-agile input[type="text"], .mail-form-agile input[type="password"] {
-    font-size: 14px;
-  }
-  .mail-form-agile input[type="submit"] {
-    font-size: 16px;
-  }
-  .footer p {
-    font-size: 14px;
-  }
-
-}
-
-
-@media screen and (max-width:568px){
-  .padding-all {
-    padding: 60px 20px;
-  }
-
-  .header h1 {
-    font-size: 32px;
-  }
-
-}
-
-@media screen and (max-width:480px){
-  .header h1 {
-    font-size: 28px;
-  }
-  .design-w3l {
-    width: 92%;
-  }
-  .mail-form-agile input[type="submit"] {
-    font-size: 14px;
-  }
-  .footer p {
-    font-size: 13px;
-  }
-
-}
-
-@media screen and (max-width:414px){
-  .padding-all {
-    padding:50px 10px;
-  }
-  .header h1 {
-    font-size: 24px;
-  }
-
-
-
-}
-
-@media screen and (max-width:384px){
-  .header {
-    padding-bottom: 30px;
-  }
-  .header h1 {
-    font-size: 22px;
-  }
-  .design-w3l {
-    width: 100%;
-  }
-
-
-
-}
-
-@media screen and (max-width:320px){
-  .header h1 {
-    font-size: 18px;
-  }
-
-
-}
 

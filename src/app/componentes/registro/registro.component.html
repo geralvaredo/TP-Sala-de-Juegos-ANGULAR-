@@ -42,6 +42,10 @@
           <label class="form-check-label" style="color: white" for="peach"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="p"  value="p"> <img [src]="peach" class="avatar" id="peach" alt="peach"> </label>
           <label class="form-check-label" style="color: white" for="yoshi"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="y" value="y"> <img [src]="yoshi" class="avatar" id="yoshi" alt="yoshi"> </label>
           <label class="form-check-label" style="color: white" for="bowser"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="b" value="b"> <img [src]="bowser" class="avatar" id="bowser" alt="bowser"> </label>
+          <label class="form-check-label" style="color: white" for="toad"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="t" value="t"> <img [src]="toad" class="avatar" id="toad" alt="toad"> </label>
+          <label class="form-check-label" style="color: white" for="luigi"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="l" value="l"> <img [src]="luigi" class="avatar" id="luigi" alt="luigi"> </label>
+          <label class="form-check-label" style="color: white" for="wario"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="w" value="w"> <img [src]="wario" class="avatar" id="wario" alt="wario"> </label>
+          <label class="form-check-label" style="color: white" for="dk"> <input class="form-check-input" [(ngModel)]="jugador.avatar" type="radio" name="avatar" id="d" value="dk"> <img [src]="dk" class="avatar" id="dk" alt="dk"> </label>
         </div>
 
         <div class="form-group">
@@ -54,10 +58,10 @@
       <div class="container">
         <div class="row botones">
           <div class="col-md-6">
-            <button type="button" (click)="onRegister()" >Registrarse</button>
+            <button type="button" class="btn btn-success btn-lg" (click)="onRegister()" >Registrarse</button>
           </div>
           <div class="col-md-6">
-            <button type="button" (click)="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-success btn-lg" (click)="cancelar()">Cancelar</button>
           </div>
         </div>
         <br>
