@@ -14,13 +14,15 @@ table{
 }
 
 thead{
-  background-color: rgba(8, 22, 36);
+  background-color: rgba(8, 22, 36,0.5);
+
 }
 
 tr{
    color: #007bff;
   text-align: center;
   background-color: rgba(8, 22, 36, 0.5);
+
 }
 
 tr:hover{
@@ -33,3 +35,18 @@ td {
 
 }
 
+th{
+    text-align: center;
+
+}
+
+h4{
+    text-align: center;
+
+}
+
+button{
+     background-color: #b01ba5;
+     margin-top: 30px;
+     margin-bottom: 30px;
+}

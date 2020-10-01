@@ -1,62 +1,36 @@
-<!--div *ngFor="let juego of listado">
-
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
-
-</div-->
 
 
 <div class="resultado">
+  <h4 routerLink="/Principal"><button class="btn btn-success btn-lg comenzar">Volver</button> </h4>
   <table class="table table-condensed">
     <thead>
     <tr>
-      <th>Juego</th>
-      <th>Jugador</th>
+      <th>Email del Jugador</th>
+      <th>Juegos</th>
+      <th>Fecha y hora</th>
+      <th>Puntaje</th>
+      <th>Intentos</th>
       <th>Resultado</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let juego of listado">
-      <td>{{juego.nombre}} </td>
-      <td>{{juego.jugador}} </td>
-      <td *ngIf="juego.gano">Gano </td>
-      <td *ngIf="!juego.gano">Perdio</td>
+    <tr *ngFor="let juegos of listadoGeneral">
+      <td>{{juegos.jugador}} </td>
+      <td>{{juegos.nombre}} </td>
+      <td>{{juegos.fecha.toDate() | date:  'dd/MM/yyyy hh:mm'}} </td>
+      <td>{{juegos.puntaje}} </td>
+      <td>{{juegos.intentos}} </td>
+      <td *ngIf="juegos.resultado">Gano </td>
+      <td *ngIf="!juegos.resultado">Perdio</td>
     </tr>
 
     </tbody>
   </table>
+
+
 </div>
 
-<!--table class="table table-dark">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">First</th>
-    <th scope="col">Last</th>
-    <th scope="col">Handle</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
-  </tbody>
-</table-->
+
 
 
 
