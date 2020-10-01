@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
   }
 
   cancelar(){
-    this.auth.redirect('Principal');
+    this.auth.redirect('Login');
   }
 
 
