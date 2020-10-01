@@ -13,7 +13,7 @@
 }
 
 table{
-  border: solid 4px white;
+  border: solid 4px white ;
   width: 70%;
   height: 20%;
   margin-left: auto;
@@ -22,7 +22,7 @@ table{
 }
 
 tr{
-  color: #007bff;
+  color: white;
   text-align: center;
   background-color: rgba(8, 22, 36, 0.5);
 }
@@ -52,4 +52,15 @@ th{
   background-size: 100% auto;
   border: 3px solid;
   border-color: blue;
+}
+
+button{
+  background-color: #b01ba5;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+h4{
+  text-align: center;
+
 }

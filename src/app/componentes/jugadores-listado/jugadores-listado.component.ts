@@ -36,6 +36,10 @@ export class JugadoresListadoComponent implements OnInit {
        case 'm': return './assets/imagenes/marioCarton.jpeg'; break;
        case 'p': return './assets/imagenes/peach.png' ; break ;
        case 'y': return './assets/imagenes/yoshiCarton.jpeg' ; break ;
+       case 't': return './assets/imagenes/toadCarton.jpeg' ; break ;
+       case 'dk': return './assets/imagenes/dk.jpeg' ; break ;
+       case 'w': return './assets/imagenes/warioCarton.jpeg' ; break ;
+       case 'l':  return './assets/imagenes/luigiCarton.png' ; break ;
      }
     }
 
